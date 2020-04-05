@@ -1,2 +1,2 @@
 # CV
-Proiecte de pus in CV
+CV + Proiecte de pus in CV
