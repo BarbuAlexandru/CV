@@ -1,2 +1,2 @@
 # CV
-CV and Projects from the CV
+My CV and Projects referenced in it
