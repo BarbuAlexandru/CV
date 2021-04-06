@@ -1,0 +1,7 @@
+Simple Android Application that uses:
+- the accelerometer
+- camera
+- internet connection
+- Google Maps
+
+Done using Kotlin
