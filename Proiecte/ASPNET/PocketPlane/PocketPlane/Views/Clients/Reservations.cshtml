@@ -1,0 +1,34 @@
+﻿@model PocketPlane.Models.Clients.ClientReservationsViewModel
+
+@{
+    ViewData["Title"] = "Reservations";
+}
+    <link rel="stylesheet" type="text/css" href="~/css/tableView.css?v=<%= DateTime.Now.Ticks %" />
+<h1 class="title">Reservations</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Nationality</th>
+            <th>CI/Passport</th>
+            <th>Seat</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.Reservations)
+        {
+            <tr>
+
+                <td>@reservation.TicketHolder.LastName</td>
+                <td>@reservation.TicketHolder.FirstName</td>
+                <td>@reservation.TicketHolder.Nationality</td>
+                <td>@reservation.TicketHolder.CI_Passport</td>
+                <td>@reservation.Seat</td>
+            </tr>
+        }
+    </tbody>
+
+</table>

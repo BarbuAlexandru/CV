@@ -1,0 +1,43 @@
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.deps.json
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfoInputs.cache
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfo.cs
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csproj.CoreCompileInputs.cache
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csprojAssemblyReference.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.deps.json
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csprojAssemblyReference.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csproj.CoreCompileInputs.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfoInputs.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfo.cs
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.deps.json
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csprojAssemblyReference.cache
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csproj.CoreCompileInputs.cache
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfoInputs.cache
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfo.cs
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.deps.json
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csprojAssemblyReference.cache
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfoInputs.cache
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfo.cs
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.deps.json
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.csprojAssemblyReference.cache
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfoInputs.cache
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.AssemblyInfo.cs
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.ApplicationLogic\obj\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb

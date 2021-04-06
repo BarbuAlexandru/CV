@@ -1,0 +1,73 @@
+﻿@model PocketPlane.Models.Clients.ClientSearchFlightsViewModel
+
+@{
+    ViewData["Title"] = "SearchFlights";
+}
+<link rel="stylesheet" type="text/css" href="~/css/tableView.css?v=<%= DateTime.Now.Ticks %" />
+<h1 class="title">Search Flights</h1>
+
+<div style="margin-left:20px">
+    @using (Html.BeginForm("SearchFlights", "Clients", FormMethod.Get))
+    {
+        <br>
+        <b class="labels">Search By:</b>
+        <br>
+        @Html.RadioButton("searchBy", "FlightNO", true) <text> FlightNO </text>
+        <br>
+        @Html.RadioButton("searchBy", "BusinessPrice", true) <text> Business Price </text>
+        <br />
+        @Html.RadioButton("searchBy", "DepartureCity", true) <text> Departure City </text>
+        <br>
+        @Html.RadioButton("searchBy", "ArrivalCity", true) <text> Arrival City </text>
+        <br />
+        <div class="boxes">
+            @Html.TextBox("search")
+        </div>
+        <input class="buttons" type="submit" value="Search" />
+        <br>
+        <br>
+    }
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>FlightNo</th>
+            <th>Business Price</th>
+            <th>Economy Price</th>
+            <th>Departure Date</th>
+            <th>Departure Airport</th>
+            <th>Departure City</th>
+            <th>Departure Hour</th>
+            <th>Arrival Date</th>
+            <th>Arrival Airport</th>
+            <th>Arrival City</th>
+            <th>Arrival Date</th>
+            <th>Buy Ticket</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var flight in Model.Flights)
+        {
+            <tr>
+                <td>@flight.FlightNo</td>
+                <td>@flight.BusinessPrice</td>
+                <td>@flight.EconomyPrice</td>
+                <td>@flight.FlightSchedule.DepartureDate</td>
+                <td>@flight.FlightSchedule.DepartureAirport</td>
+                <td>@flight.FlightSchedule.DepartureCity</td>
+                <td>@flight.FlightSchedule.DepartureHour</td>
+                <td>@flight.FlightSchedule.ArrivalDate</td>
+                <td>@flight.FlightSchedule.ArrivalAirport</td>
+                <td>@flight.FlightSchedule.ArrivalCity</td>
+                <td>@flight.FlightSchedule.ArrivalHour</td>
+                <td><a class="buttons" asp-controller="Clients" asp-action="BuyTicket" asp-route-Id="@flight.Id">Buy Ticket</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+

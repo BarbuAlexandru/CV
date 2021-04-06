@@ -1,0 +1,61 @@
+﻿@model PocketPlane.Models.Admins.AdminFutureFlightsViewModel
+
+@{
+    ViewData["Title"] = "FutureFlights";
+}
+    <link rel="stylesheet" type="text/css" href="~/css/tableView.css?v=<%= DateTime.Now.Ticks %" />
+
+<div style="text-align: center;">
+    <h1 class="title">Future Flights</h1>
+
+    <p>
+        <a class="buttons" href='@Url.Action("AddFlight", "Admins")'>Add Flight</a>
+    </p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>FlightNo</th>
+            <th>Business Price</th>
+            <th>Economy Price</th>
+            <th>Departure Date</th>
+            <th>Departure Airport</th>
+            <th>Departure City</th>
+            <th>Departure Hour</th>
+            <th>Arrival Date</th>
+            <th>Arrival Airport</th>
+            <th>Arrival City</th>
+            <th>Arrival Hour</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var flight in Model.FutureFlights)
+        {
+        <tr>
+            <td>@flight.FlightNo</td>
+            <td>@flight.BusinessPrice</td>
+            <td>@flight.EconomyPrice</td>
+            <td>@flight.FlightSchedule.DepartureDate.Date</td>
+            <td>@flight.FlightSchedule.DepartureAirport</td>
+            <td>@flight.FlightSchedule.DepartureCity</td>
+            <td>@flight.FlightSchedule.DepartureHour</td>
+            <td>@flight.FlightSchedule.ArrivalDate.Date</td>
+            <td>@flight.FlightSchedule.ArrivalAirport</td>
+            <td>@flight.FlightSchedule.ArrivalCity</td>
+            <td>@flight.FlightSchedule.ArrivalHour</td>
+            <td><a class="buttons" asp-controller="Admins" asp-action="EditFlight" asp-route-Id="@flight.Id">Edit</a></td>
+            <td>
+                <a  class="buttons" asp-controller="Admins" asp-action="DeleteFlight" asp-route-Id="@flight.Id"
+                   onclick="return confirm('Are you sure you want to delete flight: @flight.FlightNo')">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+

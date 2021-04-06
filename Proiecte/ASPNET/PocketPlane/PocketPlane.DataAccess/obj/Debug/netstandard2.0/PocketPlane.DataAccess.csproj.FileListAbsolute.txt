@@ -1,0 +1,58 @@
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csprojAssemblyReference.cache
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfo.cs
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.deps.json
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CopyComplete
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Werstef\source\repos\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.deps.json
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csprojAssemblyReference.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfo.cs
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CopyComplete
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Werstef\Desktop\Se_ProjectII_new\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.deps.json
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csprojAssemblyReference.cache
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfo.cs
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CopyComplete
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Werstef\Desktop\LastPresentationPocketPlane\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.deps.json
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csprojAssemblyReference.cache
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfo.cs
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CopyComplete
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\Teodora\Desktop\PocketPlane VFinala\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.deps.json
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.DataAccess.pdb
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.dll
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\bin\Debug\netstandard2.0\PocketPlane.ApplicationLogic.pdb
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csprojAssemblyReference.cache
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfoInputs.cache
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.AssemblyInfo.cs
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.csproj.CopyComplete
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.dll
+C:\Users\mirce\Desktop\PocketPlane\PocketPlane.DataAccess\obj\Debug\netstandard2.0\PocketPlane.DataAccess.pdb

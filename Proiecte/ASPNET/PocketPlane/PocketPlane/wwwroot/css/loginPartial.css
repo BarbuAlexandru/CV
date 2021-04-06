@@ -1,0 +1,16 @@
+﻿.buttons {
+    background-color: #ffffe6;
+    float: center;
+    border: 1px;
+    border-style: solid;
+    border-color: #8080ff;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 16px;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PocketPlane</title>
+    <link rel="stylesheet" href="~/css/menu.css?v=<%= DateTime.Now.Ticks %" />
+</head>
+<body>
+    <header>
+
+        <div class="menu">
+
+            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="Admins" asp-action="EditAccount">Edit Admin</a>
+                <a asp-area="" asp-controller="Admins" asp-action="PastFlights">Past Flights</a>
+                <a asp-area="" asp-controller="Admins" asp-action="FutureFlights">Future Flights</a>
+                <a asp-area="" asp-controller="Admins" asp-action="AddFlight">Add Flight</a>
+                <a asp-area="" asp-controller="Admins" asp-action="PlaneTypes">PlaneTypes</a>
+                <a asp-area="" asp-controller="Admins" asp-action="AddPlaneType">Add PlaneType</a>
+                <a asp-area="" asp-controller="Admins" asp-action="Index">Admin Home</a>
+
+            } else if (SignInManager.IsSignedIn(User) && User.IsInRole("Client"))
+            {
+                <a asp-area="" asp-controller="Clients" asp-action="EditAccount">Edit Client</a>
+                <a asp-area="" asp-controller="Clients" asp-action="Reservations">Reservations</a>
+                <a asp-area="" asp-controller="Clients" asp-action="SearchFlights">Search Flights</a>
+                <a asp-area="" asp-controller="Clients" asp-action="Index">Client Home</a>
+
+            }else{ 
+                <a asp-area="" asp-controller="Home" asp-action="Index">PocketPlane</a>
+            }
+
+        </div>
+
+        <div>
+            <partial name="_LoginPartial" />
+        </div>
+
+
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - PocketPlane - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

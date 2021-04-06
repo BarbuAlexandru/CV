@@ -1,0 +1,74 @@
+﻿@model PocketPlane.Models.Admins.AdminDetailsFlightViewModel
+
+@{
+    ViewData["Title"] = "DetailsFlight";
+}
+<link rel="stylesheet" type="text/css" href="~/css/tableView.css?v=<%= DateTime.Now.Ticks %" />
+
+<h1 class="title">Details Flight</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>FlightNo</th>
+            <th>Departure Date</th>
+            <th>Departure Airport</th>
+            <th>Departure City</th>
+            <th>Departure Hour</th>
+            <th>Arrival Date</th>
+            <th>Arrival Airport</th>
+            <th>Arrival City</th>
+            <th>Arrival Hour</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Flight.FlightNo</td>
+            <td>@Model.Flight.FlightSchedule.DepartureDate.Date</td>
+            <td>@Model.Flight.FlightSchedule.DepartureAirport</td>
+            <td>@Model.Flight.FlightSchedule.DepartureCity</td>
+            <td>@Model.Flight.FlightSchedule.DepartureHour</td>
+            <td>@Model.Flight.FlightSchedule.ArrivalDate.Date</td>
+            <td>@Model.Flight.FlightSchedule.ArrivalAirport</td>
+            <td>@Model.Flight.FlightSchedule.ArrivalCity</td>
+            <td>@Model.Flight.FlightSchedule.ArrivalHour</td>
+        </tr>
+    </tbody>
+
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Seat</th>
+            <th>First Name </th>
+            <th>Last Name</th>
+            <th>Nationality</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var reservations in Model.Flight.Reservations)
+        {
+            <tr>
+                <th>@reservations.Seat</th>
+                <th>@reservations.TicketHolder.FirstName</th>
+                <th>@reservations.TicketHolder.LastName</th>
+                <th>@reservations.TicketHolder.Nationality </th>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+

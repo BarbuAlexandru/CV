@@ -1,0 +1,76 @@
+﻿@using PocketPlane.Models.Admins;
+@model AdminEditFlightViewModel;
+@{
+    ViewData["Title"] = "EditFlight";
+}
+<link rel="stylesheet" href="~/css/addPlaneType.css?v=<%= DateTime.Now.Ticks %" />
+<!DOCTYPE html>
+<html>
+<head>
+    <title >PocketPlane</title>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <h2 class="title">Edit Flight</h2>
+        <br>
+        <form asp-action="EditFlight" method="post">
+            <div style="text-align: center;">
+                <div class="labels">
+                    <div class="column">
+                        <input hidden asp-for="FlightId" />
+                        <label for="FlightNo"><b>FlightNo:</b></label>
+                        <input asp-for="FlightNo" class="boxes" type="text" placeholder="FlightNo..." name="FlightNo"><br>
+
+                        <label for="BusinessPrice"><b>BusinessPrice:</b></label>
+                        <input asp-for="BusinessPrice" class="boxes" type="number" step=".01" placeholder="BusinessPrice..." name="BusinessPrice"><br>
+
+                        <label for="EconomyPrice"><b>EconomyPrice:</b></label>
+                        <input asp-for="EconomyPrice" class="boxes" type="number" step=".01" placeholder="EconomyPrice..." name="EconomyPrice"><br>
+
+                        <label for="DepartureDate"><b>DepartureDate:</b></label>
+                        <input asp-for="DepartureDate" class="boxes" type="date" asp-format="{0:yyyy-MM-dd}" name="DepartureDate"><br>
+
+                        <label for="DepartureCity"><b>DepartureCity:</b></label>
+                        <input asp-for="DepartureCity" class="boxes" type="text" placeholder="DepartureCity..." name="DepartureCity"><br>
+
+                        <label for="DepartureAirport"><b>DepartureAirport:</b></label>
+                        <input asp-for="DepartureAirport" class="boxes" type="text" placeholder="DepartureAirport..." name="DepartureAirport"><br>
+
+                        <label for="DepartureHour"><b>DepartureHour:</b></label>
+                        <input asp-for="DepartureHour" class="boxes" type="text" placeholder="DepartureHour..." name="DepartureHour"><br>
+
+                        <label for="ArrivalDate"><b>ArrivalDate:</b></label>
+                        <input asp-for="ArrivalDate" class="boxes" type="date" asp-format="{0:yyyy-MM-dd}" name="ArrivalDate"><br>
+
+                        <label for="ArrivalAirport"><b>ArrivalAirport:</b></label>
+                        <input asp-for="ArrivalAirport" class="boxes" type="text" placeholder="ArrivalAirport..." name="ArrivalAirport"><br>
+
+                        <label for="ArrivalCity"><b>ArrivalCity:</b></label>
+                        <input asp-for="ArrivalCity" class="boxes" type="text" placeholder="ArrivalCity..." name="ArrivalCity"><br>
+                    </div>
+                </div>
+                <br />
+                    <label for="ArrivalHour"><b>ArrivalHour:</b></label>
+                    <input asp-for="ArrivalHour" class="boxes" type="text" placeholder="ArrivalHour..." name="ArrivalHour"><br>
+                    <br>
+
+
+                <br />
+                <button type="submit" class="buttons">Edit Flight</button>
+            </div>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
+
+
+

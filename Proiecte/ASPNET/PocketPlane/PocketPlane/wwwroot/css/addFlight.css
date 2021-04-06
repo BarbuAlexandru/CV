@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  
+}
+
+input{
+  height: 25px;
+  width: 200px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.menu {
+  overflow: hidden;
+  background-color: #334d4d;
+}
+
+.menu a {
+  float: right;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #ff9966;
+  color: white;
+}
+
+.buttons {
+  background-color: #ffeecc;
+  float: center;
+  border: 1px;
+  border-style: solid;
+  border-color: #ff9933;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 16px;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  font-weight: bold;
+
+}
+
+.labels{
+  text-align: left;
+  margin-left: 600px;
+
+}
+
+
+
+.boxes{
+  background-color: #ffeecc;
+  float: center;
+  border: 1px;
+  border-style: solid;
+  border-color: #ff9933;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 16px;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  font-size: 17px;
+
+}
+

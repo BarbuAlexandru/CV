@@ -1,0 +1,37 @@
+﻿@model PocketPlane.Models.Admins.AdminPlaneTypesViewModel
+
+@{
+    ViewData["Title"] = "PlaneTypes";
+}
+    <link rel="stylesheet" type="text/css" href="~/css/tableView.css?v=<%= DateTime.Now.Ticks %" />
+
+    <div style="text-align: center;">
+        <h1 class="title">Plane Types</h1>
+        <p>
+            <a class="buttons" href='@Url.Action("AddPlaneType", "Admins")'>Add Plane Type</a>
+        </p>
+
+    </div>
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>CapacityBusiness</th>
+            <th>CapacityEconomy Text</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var planeType in Model.PlaneTypes)
+        {
+            <tr>
+                <td>@planeType.Model</td>
+                <td>@planeType.Manufacturer</td>
+                <td>@planeType.CapacityBusiness</td>
+                <td>@planeType.CapacityEconomy</td>
+            </tr>
+        }
+    </tbody>
+
+</table>

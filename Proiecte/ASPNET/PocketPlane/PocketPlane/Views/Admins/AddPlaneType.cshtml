@@ -1,0 +1,54 @@
+﻿@using PocketPlane.Models.Admins;
+@model AdminAddPlaneTypeViewModel;
+@{
+    ViewData["Title"] = "AddPlaneType";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PocketPlane</title>
+    <link rel="stylesheet" href="~/css/addPlaneType.css?v=<%= DateTime.Now.Ticks %" />
+
+</head>
+
+<body>
+
+   
+
+        <h2 class="title">Add Plane Type</h2>
+        <br>
+        <form asp-action="AddPlaneType" method="post">
+            <div style="text-align: center;">
+                <div class="labels">
+
+                    <label for="fname"><b>Model:</b></label>
+                    <input asp-for="Model" class="boxes" type="text" placeholder="Model..." name="Model"><br>
+
+                    <label for="fname"><b>Manufacturer:</b></label>
+                    <input asp-for="Manufacturer" class="boxes" type="text" placeholder="Manufacturer..." name="Manufacturer"><br>
+
+                    <label for="email"><b>CapacityBusiness:</b></label>
+                    <input asp-for="CapacityBusiness" class="boxes" type="number" placeholder="CapacityBusiness..." name="CapacityBusiness"><br>
+
+                    <label for="phonenr"><b>CapacityEconomy:</b></label>
+                    <input asp-for="CapacityEconomy" class="boxes" type="number" placeholder="CapacityEconomy..." name="CapacityEconomy"><br>
+
+                    <br>
+                </div>
+                <br />
+                <button type="submit" class="buttons">Add Plane Type</button>
+            </div>
+
+
+           </form>
+
+
+
+
+    
+
+
+</body>
+
+</html>
