@@ -1,0 +1,71 @@
+﻿@using DrumetiiShop.Models
+@using DrumetiiShop.ViewModels
+
+@model DrumetiiShop.ViewModels.SeeProductViewModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<style>
+    .buttons {
+        width: 200px;
+        height: 50px;
+        font-size: 30px;
+        background-color: #87CDFF;
+        color: #2C3517;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        border-style: solid;
+        border-width: 3px;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    .left {
+        text-align: center;
+        float: left;
+        width: 30%;
+        height: 500px;
+    }
+
+    .right {
+        text-align: center;
+        float: right;
+        width: 70%;
+        height: 500px;
+    }
+
+    .container{
+        color:black;
+    }
+</style>
+
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1><br><br><br>
+
+<div class="container">
+    <div class="left">
+        <img src="~/media/products/pictures/@(Program.StandardizeText(Model.Product.Name)).png" width="200" height="200" style="border-style: solid;" \>
+    </div>
+    <div class="right">
+        <p style="font-size:28px"><b>@(Model.Product.Name)</b></p><br>
+        <p style="font-size:22px">Category: @(Model.Product.Category)</p><br>
+        <p style="font-size:22px">Description: @(Model.Product.Description)</p><br>
+        <p style="font-size:30px"><b>Price: @(Model.Product.Price) lei</b></p><br>
+    </div>
+</div>
+
+
+<div>
+    <div style="float:left">
+        <a class="buttons" style="width:450px;" href="~/media/products/documentation/@(Program.StandardizeText(Model.Product.Name)).txt" download>Download the Documentation</a>
+    </div>
+    <div style="float:right">
+        <a class="buttons" asp-controller="Main" asp-action="AddProductToCartSeeProduct" asp-route-Id="@Model.Product.Id">Add to Cart</a>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@using DrumetiiShop.ViewModels;
+@model LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    .buttons {
+        width: 105px;
+        height: 30px;
+        font-size: 18px;
+        background-color: #87CDFF;
+        color: #2C3517;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    a:hover {
+        color: black;
+    }
+</style>
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1><br><br><br>
+
+<div>
+    <form asp-action="Login" method="post">
+        <div style="text-align: center;">
+            <div>
+                <div>
+                    <label for="Email"><b>Email:</b></label><br>
+                    <input asp-for="Email" style="width:300px; text-align:center;" required maxlength="30" type="text" placeholder="Email..." name="Email"><br>
+                    <br><br>
+
+                    <label for="Password"><b>Password:</b></label><br>
+                    <input asp-for="Password" style="width:300px; text-align:center;" required maxlength="30" type="password" placeholder="Password..." name="Password"><br>
+                    <br><br><br>
+                </div>
+            </div>
+            <button class="buttons" type="submit">Login</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,88 @@
+﻿@using DrumetiiShop.Models
+@using DrumetiiShop.ViewModels
+
+@model DrumetiiShop.ViewModels.CartViewModel
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<style>
+    .buttons {
+        width: 105px;
+        height: 30px;
+        font-size: 18px;
+        background-color: #87CDFF;
+        color: #2C3517;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    .cart_table {
+        font-size: 18px;
+        table-layout: auto;
+        width: 100%;
+    }
+    th{
+        text-align:center;
+    }
+</style>
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1><br><br><br>
+
+@if (Model.ProductCartInfos.Count()!=0)
+{
+    <div style="text-align:center; font-size:25px;">
+        <p>Items in Cart:</p><br>
+    </div>
+    <div>
+        <table class="cart_table" border="1">
+            <tr>
+                <th>Index</th>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>No in Cart</th>
+                <th>Total Price</th>
+                <th>Options</th>
+            </tr>
+            @foreach (var productCartInfo in Model.ProductCartInfos)
+            {
+                <tr>
+                    <td style="text-align:center">@(Model.ProductCartInfos.IndexOf(productCartInfo) + 1)/@(Model.ProductCartInfos.Count())</td>
+                    <td style="text-align:center"><img src="~/media/products/pictures/@(Program.StandardizeText(productCartInfo.Product.Name)).png" width="60" height="60"\></td>
+                    <td style="text-align:center">@(productCartInfo.Product.Name)</td>
+                    <td style="padding-left:5px;">@productCartInfo.Product.Description</td>
+                    <td style="text-align:center">@(productCartInfo.Product.Category)</td>
+                    <td style="text-align:center">@(productCartInfo.Product.Price) lei</td>
+                    <td style="text-align:center">@(productCartInfo.NrOfProducts)</td>
+                    <td style="text-align:center">@(productCartInfo.TotalPrice()) lei</td>
+                    <td style="text-align:center">
+                        <a asp-controller="Main" asp-action="AddProductFromCart" asp-route-Id="@productCartInfo.Product.Id">Add</a>
+                        <a asp-controller="Main" asp-action="DeleteProductFromCart" asp-route-Id="@productCartInfo.Product.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    
+        <br><br><p style="font-size:18px; font-weight: bold; float:left;">Total Price: @(Model.TotalPrice()) lei</p>
+        <a class="buttons" style="float: right;" asp-area="" asp-controller="Main" asp-action="CartCheckout">Checkout</a>
+    </div>
+} else {
+    <div style="text-align:center; font-size:25px;">
+        <p>The cart is currently empty</p>
+        <p>Please add some products</p><br>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Main" asp-action="Home"><b> Home Page</b></a>
+    </div>
+}

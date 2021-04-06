@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Account";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"] Information</h1><br><br><br>
+
+<div style="text-align:center; font-size:25px;">
+    <p>This page shows information about current account.</p>
+    <p><b>Id:</b> @Program.currentUser.Id</p>
+    <p><b>Email:</b> @Program.currentUser.Email</p>
+    <p><b>Role:</b> @Program.currentUser.Role</p>
+</div>
