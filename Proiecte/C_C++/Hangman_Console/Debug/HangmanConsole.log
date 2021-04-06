@@ -1,0 +1,5 @@
+﻿  HangmanConsole.cpp
+C:\Users\mirce\Desktop\Proiecte\VS\HangmanConsole\HangmanConsole.cpp(44,21): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\mirce\Desktop\Proiecte\VS\HangmanConsole\HangmanConsole.cpp(45,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mirce\Desktop\Proiecte\VS\HangmanConsole\HangmanConsole.cpp(49,35): warning C4018: '<': signed/unsigned mismatch
+  HangmanConsole.vcxproj -> C:\Users\mirce\Desktop\Proiecte\VS\HangmanConsole\Debug\HangmanConsole.exe
