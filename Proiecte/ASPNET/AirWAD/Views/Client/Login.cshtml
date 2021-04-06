@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+    ViewData["Title"] = "Login Page";
+}
+
+<style>
+    #container {
+        width: 1000px;
+        margin: auto;
+    }
+
+    #header {
+        background-color: #808080;
+        color: white;
+        padding: 10px;
+        height: 135px;
+    }
+
+    #h_name {
+        margin-left: 20px;
+        width: 50%;
+        font-weight: bold;
+        float: left;
+        font-size: 40px;
+    }
+
+
+    #content {
+        height: 500px;
+        background-color: #FFFFFF;
+        text-align: center;
+        padding: 100px;
+        font-size: 25px;
+    }
+
+    #c_info {
+        height: 280px;
+        line-height: 1.8;
+    }
+
+    #c_login {
+        height: 100px;
+    }
+
+    #c_register {
+        height: 80px;
+    }
+
+    input {
+        height: 40px;
+        width: 250px;
+        font-size: 25px;
+    }
+
+    .button {
+        height: 40px;
+        width: 250px;
+        font-size: 25px;
+    }
+
+    #footer {
+        background-color: #808080;
+        text-align: center;
+        clear: both;
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+
+<title>AirWAD - Login Page</title>
+
+
+<body style="background-color:#76C25B">
+
+    <div id="container">
+
+        <div id="header">
+            <div id="h_name">
+                <p>AirWAD - Login Page</p>
+            </div>
+        </div>
+
+        <div id="content">
+            <form action="@Url.Action("Home", "Client")">
+                <div id="c_info">
+                    <label for="email">E-Mail:</label><br>
+                    <input type="text" id="email" name="email" value="" required><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password" value="" required><br><br>
+                </div>
+                <div id="c_login">
+                    <input class="button" type="submit" value="Login">
+                </div>
+                <div id="c_register">
+                    <label for="register">Don't have an account?</label><br>
+                    <a href="@Url.Action("Register", "Client")"><input class="button" type="button" value="Register"></a>
+                </div>
+            </form>
+        </div>
+
+        <div id="footer">
+            <p> Copyright Lab - WAD, Login Page</p>
+        </div>
+
+    </div>
+
+</body>

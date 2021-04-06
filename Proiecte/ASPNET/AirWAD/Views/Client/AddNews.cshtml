@@ -1,0 +1,159 @@
+﻿@using AirWAD.ViewModels;
+@model AddNewsViewModel;
+@{
+    Layout = null;
+    ViewData["Title"] = "Add News Page";
+}
+
+<style>
+    #container {
+        width: 1000px;
+        margin: auto;
+    }
+
+    #header {
+        background-color: #808080;
+        color: white;
+        padding: 10px;
+        height: 135px;
+    }
+
+    #h_name {
+        margin-left: 20px;
+        width: 50%;
+        font-weight: bold;
+        float: left;
+        font-size: 40px;
+    }
+
+    #h_buttons {
+        margin-right: 20px;
+        margin-top: 30px;
+        width: 40%;
+        float: right;
+        vertical-align: text-bottom;
+        text-align: right;
+    }
+
+    button {
+        width: 160px;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    .button {
+        width: 160px;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    #content {
+        background-color: #FFFFFF;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+        border-right: 1px solid #bbb;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 18px;
+            text-decoration: none;
+        }
+
+            li a:hover {
+                background-color: #111;
+            }
+
+    #c_content {
+        height: 800px;
+        padding: 100px;
+    }
+
+    #c_info {
+        height: 730px;
+        line-height: 1.8;
+    }
+
+    input {
+        height: 40px;
+        width: 250px;
+        font-size: 25px;
+    }
+
+    #footer {
+        background-color: #808080;
+        text-align: center;
+        clear: both;
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+
+<title>AirWAD - Add News Page</title>
+
+<body style="background-color:#76C25B">
+
+    <div id="container">
+
+        <div id="header">
+            <div id="h_name">
+                <p>AirWAD - Add News Page</p>
+            </div>
+            <div id="h_buttons">
+                <a href="@Url.Action("Welcome", "Client")"><input class="button" type="button" value="Log Out"></a>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="menu">
+                <ul>
+                    <li><a href="@Url.Action("Home", "Client")">Home</a></li>
+                    <li><a href="@Url.Action("AddRental", "Client")">Add Rental</a></li>
+                    <li><a href="@Url.Action("SearchRentals", "Client")">Search Rentals</a></li>
+                    <li><a href="@Url.Action("BoughtRentals", "Client")">Bought Rentals</a></li>
+                    <li style="float:right"><a href="@Url.Action("Home", "Client")">Hello @User.Identity.Name</a></li>
+                </ul>
+            </div>
+            <div id="c_content">
+                <form asp-action="AddNews" method="post">
+                    <div style="text-align: center;">
+                        <div class="labels">
+                            <div class="column">
+
+                                <label for="Title" ><b>Title:<br></br></label>
+                                <input asp-for="Title" style="width:700px; text-align:center;" required maxlength="50" type="text" placeholder="Title..." name="Title"><br>
+                                <br><br>
+                                <label for="Content"><b>Content:<br></br></label>
+                                <textarea asp-for="Content" style="height: 500px;text-align:left; width:700px;font-size: 25px;" rows="10" cols="30" required maxlength="2500" type="text" placeholder="Content..." name="Content"><br>
+                                </textarea>
+                                </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="buttons">Add News</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p> Copyright Lab - WAD, Add News Page</p>
+        </div>
+
+    </div>
+
+</body>

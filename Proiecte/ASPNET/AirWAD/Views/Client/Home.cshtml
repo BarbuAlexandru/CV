@@ -1,0 +1,256 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using AirWAD.Models.DataBase
+@using AirWAD.ViewModels
+
+@model AirWAD.ViewModels.HomeViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Home Page";
+}
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+
+<style>
+    #container {
+        width: 1000px;
+        margin: auto;
+    }
+
+    #header {
+        background-color: #808080;
+        color: white;
+        padding: 10px;
+        height: 135px;
+    }
+
+    #h_name {
+        margin-left: 20px;
+        width: 50%;
+        font-weight: bold;
+        float: left;
+        font-size: 40px;
+    }
+
+    #h_buttons {
+        margin-right: 20px;
+        margin-top: 30px;
+        width: 40%;
+        float: right;
+        vertical-align: text-bottom;
+        text-align: right;
+    }
+
+    button {
+        width: 160px;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    .button {
+        width: 160px;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    #content {
+        background-color: #FFFFFF;
+        text-align: center;
+    }
+
+    #menu {
+        font-size: 25px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+        border-right: 1px solid #bbb;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 18px;
+            text-decoration: none;
+        }
+
+            li a:hover {
+                background-color: #111;
+            }
+
+    #c_content {
+        height: 2000px;
+    }
+
+    #footer {
+        background-color: #808080;
+        text-align: center;
+        clear: both;
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+
+<title>AirWAD - Home page</title>
+
+<body style="background-color:#76C25B">
+
+    @*
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <text>
+                alert('Login successful!');
+                </text>
+            }
+             });
+        </script>
+    *@
+
+
+
+    <div id="container">
+
+        <div id="header">
+            <div id="h_name">
+                <p>AirWAD - Home page</p>
+            </div>
+            <div id="h_buttons">
+                <a href="@Url.Action("Welcome", "Client")"><input class="button" type="button" value="Log Out"></a>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="menu">
+                <ul>
+                    <li><a href="@Url.Action("Home", "Client")">Home</a></li>
+                    <li><a href="@Url.Action("AddRental", "Client")">Add Rental</a></li>
+                    <li><a href="@Url.Action("SearchRentals", "Client")">Search Rentals</a></li>
+                    <li><a href="@Url.Action("BoughtRentals", "Client")">Bought Rentals</a></li>
+                    <li style="float:right"><a href="@Url.Action("Home", "Client")">Hello @User.Identity.Name</a></li>
+                </ul>
+            </div>
+            <div id="c_content">
+                <br><br><br>
+                <h1>Hello @User.Identity.Name</h1>
+                <br><hr>
+                <br><br><h1>News and other informations - <a href="@Url.Action("AddNews", "Client")">Add News</a></h1>
+                <div id="news">
+                    <table style="width: 100%; text-align: center;border: 4px solid black;" border=1 frame=void rules=rows>
+                        <thead style=" font-size: 25;">
+                            <tr>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Author</th>
+                                <th>Options</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var news in Model.News)
+                            {
+                                <tr style="height:150;">
+                                    <td style="  font-size: 30;">@news.Title</td>
+                                    <td style=" font-size: 20;">@news.Content</td>
+                                    <td style=" font-size: 20;">User</td>
+                                    <td><a class="buttons" asp-controller="Client" asp-action="DeleteNews" asp-route-Id="@news.Id">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+                <p style=" font-size: 20;">News and information</p><br>
+                <a href="@Url.Action("AddNews", "Client")">Add News</a><br><br>
+                <br><br><hr><br>
+                <br><br><h1>User informations and statistics</h1><br>
+                <table style="width: 100%; text-align: center;border: 2px solid black;" border=1 frame=void rules=rows>
+                    <thead style=" font-size: 25;">
+                        <tr>
+                            <th>City</th>
+                            <th>Address</th>
+                            <th>Starting Date</th>
+                            <th>Ending Date</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Author</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var reservation in Model.Reservations)
+                        {
+                            <tr style=" font-size: 20; height:150px;">
+                                <td>@reservation.Rental.City</td>
+                                <td>@reservation.Rental.Address</td>
+                                <td>@reservation.StartDate</td>
+                                <td>@reservation.EndDate</td>
+                                <td>@reservation.Rental.Description</td>
+                                <td>@reservation.Price</td>
+                                <td>User</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+                <br><br><hr>
+                <br><br><h1>Recomandations</h1><br>
+                <table style="width: 100%; text-align: center;border: 2px solid black;" border=1 frame=void rules=rows>
+                    <thead style=" font-size: 25;">
+                        <tr>
+                            <th>City</th>
+                            <th>Address</th>
+                            <th>Starting Date</th>
+                            <th>Ending Date</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Author</th>
+                            <th>Options</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var listing in Model.Listings)
+                        {
+                            <tr style=" font-size: 20; height:150px">
+                                <td>@listing.Rental.City</td>
+                                <td>@listing.Rental.Address</td>
+                                <td>@listing.StartDate</td>
+                                <td>@listing.EndDate</td>
+                                <td>@listing.Rental.Description</td>
+                                <td>@listing.Price</td>
+                                <td>User</td>
+                                <td>
+                                    <a class="buttons" asp-controller="Client" asp-action="BuyListing" asp-route-Id="@listing.Id">Buy</a>
+                                    <a class="buttons" asp-controller="Client" asp-action="DeleteListing" asp-route-Id="@listing.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p> Copyright Lab - WAD, Home Page</p>
+        </div>
+
+    </div>
+
+</body>
