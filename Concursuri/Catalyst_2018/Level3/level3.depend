@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1542385715 source:c:\users\alex\desktop\levels catalyst\level2\level2\level2.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+	<math.h>
+	<bits/stdc++.h>
+
+1542387935 source:c:\users\alex\desktop\levels catalyst\level3\level3.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+	<math.h>
+	<bits/stdc++.h>
+

@@ -1,0 +1,193 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <string.h>
+
+int e_prim(int nr){
+    int prim=1;
+    int i;
+
+    if(nr==0 || nr==1)
+        return 0;
+
+    for(i=2; i<=nr/2; i++)
+        if(nr%i==0)
+            prim=0;
+
+    return prim;
+}
+
+int random_Nr_Gen(int nr_max,int ce_fel_nr){
+    //Daca ce_fel_nr==0 -> se genereaza un numar care nu e prim
+    //Daca ce_fel_nr==1 -> se genereaza un numar prim
+    //Daca ce_fel_nr diferit de 0, 1 -> orice numar, nu conteaza
+            //Un nr oarecare = 1, 2, .., nr_max inclusiv.
+
+    srand(rand());
+    int numar_generat;
+    int vector_nr_prime[]={2,3,5,7,11,13,17,19,23,29};
+
+    switch(ce_fel_nr)
+    {
+        case 0:
+            numar_generat = (rand() % nr_max)+1;
+            if(e_prim(numar_generat)!=0)
+                return random_Nr_Gen(nr_max, ce_fel_nr);
+        break;
+
+        case 1:
+            numar_generat = (rand() % 10);
+            numar_generat = vector_nr_prime[numar_generat];
+            if(numar_generat>nr_max)
+                return random_Nr_Gen(nr_max, ce_fel_nr);
+        break;
+
+        default:
+            numar_generat = (rand() % nr_max)+1;
+        break;
+    }
+
+    return numar_generat;
+}
+
+char random_letter(int ce_fel_litera, char exceptie1, char exceptie2){
+    // Daca ce_fel_litera == 0 -> litera mica
+    // Daca ce_fel_litera == 1 -> litera mare
+    // In alt caz -> orice litera nu conteaza
+            // E nevoie de exceptie1 si exceptie2, ca sa poate fi
+            // decriptat, pt ca daca nu ar fi, s-ar putea sa apara
+            // aceeasi litera si ca litera esentiala, si ca litera
+            // random, si asta ar da peste cap nr de litere esentiale.
+
+    char letter;
+
+    letter = random_Nr_Gen(26, -1) + 64;
+
+    if(ce_fel_litera==0)
+        letter+=32;
+
+    if(ce_fel_litera!=0 && ce_fel_litera!=1)
+    {
+        ce_fel_litera=random_Nr_Gen(2,-1)-1;
+        letter = random_letter(ce_fel_litera, exceptie1, exceptie2);
+    }
+
+    if(letter==exceptie1 || letter==exceptie2)
+        return random_letter(ce_fel_litera, exceptie1, exceptie2);
+
+    return letter;
+}
+
+char* criptare_cuvant(char* cuvant){
+    char cuvant_criptat[1000]="";
+    char litera;
+    int i, j, k;
+    int cate_litere_random;
+    int cate_litere_lafel;
+
+    for(i=0; i<strlen(cuvant); i++)
+    {
+        cate_litere_lafel = random_Nr_Gen(6, 1);
+        for(k=1; k<=cate_litere_lafel; k++)
+            cuvant_criptat[strlen(cuvant_criptat)]=cuvant[i];
+
+        cate_litere_random = random_Nr_Gen(2, -1);
+        for(j=1; j<=cate_litere_random; j++)
+        {
+            cate_litere_lafel = random_Nr_Gen(6, 0);
+            litera=random_letter(-1, cuvant[i], cuvant[i+1]);
+            for(k=1; k<=cate_litere_lafel; k++)
+                cuvant_criptat[strlen(cuvant_criptat)]=litera;
+        }
+    }
+
+    cuvant=cuvant_criptat;
+    return cuvant;
+}
+
+char* criptare_text(char* text){
+    char text_criptat[1000]="";
+    char separatori[20]=" ,.;:!?-\0";
+    char cuvant[1000]="";
+    int i;
+
+    for(i=0; i<=strlen(text); i++)
+    {
+        if(strchr(separatori, text[i]) != NULL)
+        {
+            cuvant[strlen(cuvant)]='\0';
+            strcat(text_criptat, criptare_cuvant(cuvant));
+            text_criptat[strlen(text_criptat)]=text[i];
+            memset(cuvant,0,strlen(cuvant));
+        }else{
+            cuvant[strlen(cuvant)]=text[i];
+        }
+    }
+
+    text = text_criptat;
+    return text;
+}
+
+char* decriptare_cuvant(char* cuvant){
+    char cuvant_decriptat[1000]="";
+    char letter = cuvant[0];
+    int nr_aparitii=0;
+    int i;
+
+    for(i=0; i<=strlen(cuvant); i++)
+    {
+        if(cuvant[i]==letter){
+            nr_aparitii+=1;
+        }else{
+            if(e_prim(nr_aparitii)==1)
+                cuvant_decriptat[strlen(cuvant_decriptat)]=letter;
+
+            nr_aparitii=1;
+            letter=cuvant[i];
+        }
+    }
+
+    cuvant=cuvant_decriptat;
+    return cuvant;
+}
+
+char* decriptare_text(char* text){
+    char text_decriptat[1000]="";
+    char* aux;
+    char separatori[20]=" ,.;:!?-\0";
+    char cuvant[1000]="";
+    int i;
+
+    for(i=0; i<=strlen(text); i++)
+    {
+        if(strchr(separatori, text[i]) != NULL)
+        {
+            cuvant[strlen(cuvant)]='\0';
+            strcat(text_decriptat, decriptare_cuvant(cuvant));
+            text_decriptat[strlen(text_decriptat)]=text[i];
+            memset(cuvant,0,strlen(cuvant));
+        }else{
+            cuvant[strlen(cuvant)]=text[i];
+        }
+    }
+
+    text = text_decriptat;
+    return text;
+}
+
+void main(){
+    srand(time(NULL));
+
+    char text_normal[1000]="";
+    char text_criptat[1000]="";
+    char text_decriptat[1000]="";
+
+    gets(text_normal);
+
+    strcpy(text_criptat, criptare_text(text_normal));
+    printf("\n%s\n", text_criptat);
+
+    strcpy(text_decriptat, decriptare_text(text_criptat));
+    printf("\n%s\n", text_decriptat);
+}
