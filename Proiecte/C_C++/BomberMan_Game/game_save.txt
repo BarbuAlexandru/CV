@@ -1,0 +1,7 @@
+Plane1: 100 900
+Plane2: 1800 900
+Enemy1: 1470 70
+Enemy2: 1430 70
+Enemy3: 670 70
+FriendlyLives: 3
+EnemyLives: 3
