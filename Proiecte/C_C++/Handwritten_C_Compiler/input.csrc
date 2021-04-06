@@ -1,0 +1,19 @@
+int global = 11;
+short int x;
+
+void main(int test){
+	void v;
+	int i = 7;
+	char c = 'c';
+	short s = 1;
+	long l = 1000;
+	float f = 1.5;
+	double d = 1.5;
+	unsigned int u = 1;
+
+	void v;
+}
+
+void function2(long long test){
+	int i=4;
+}
