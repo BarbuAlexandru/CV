@@ -1,1 +1,1 @@
-Application to visualize the Mandelbrot Set
+Application to visualize the Mandelbrot Set.
