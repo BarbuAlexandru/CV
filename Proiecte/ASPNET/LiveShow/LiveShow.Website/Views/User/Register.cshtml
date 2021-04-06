@@ -1,0 +1,122 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using LiveShow.Website.ViewModels;
+@model RegisterUserViewModel;
+
+
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Register Page";
+}
+
+<style>
+    #container {
+        width: 1000px;
+        margin: auto;
+    }
+
+    #header {
+        background-color: #808080;
+        color: white;
+        padding: 10px;
+        height: 135px;
+    }
+
+    #h_name {
+        margin-left: 20px;
+        width: 50%;
+        font-weight: bold;
+        float: left;
+        font-size: 40px;
+    }
+
+    #content {
+        height: 650px;
+        background-color: #FFFFFF;
+        text-align: center;
+        padding: 100px;
+        font-size: 25px;
+    }
+
+    #c_info {
+        height: 500px;
+        line-height: 1.8;
+    }
+
+    #c_login {
+        height: 80px;
+    }
+
+    #c_register {
+        height: 100px;
+    }
+
+    input {
+        height: 40px;
+        width: 250px;
+        font-size: 25px;
+    }
+
+    button {
+        height: 40px;
+        width: 250px;
+        font-size: 25px;
+    }
+
+    #footer {
+        background-color: #808080;
+        text-align: center;
+        clear: both;
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+
+<title>LiveShow - Register Page</title>
+
+<body style="background-color:#76C25B">
+
+    <div id="container">
+
+        <div id="header">
+            <div id="h_name">
+                <p>LiveShow - Register Page</p>
+            </div>
+        </div>
+
+        <div id="content">
+            <form asp-action="RegisterUser" method="post">
+                <div id="c_info">
+                    <label for="firstName">First Name:<br></label>
+                    <input asp-for="FirstName" required type="text" name="firstName"><br>
+
+                    <label for="lastName">Last Name:<br></label>
+                    <input asp-for="LastName" required type="text" name="lastName"><br>
+
+                    <label for="userName">UserName:<br></label>
+                    <input asp-for="UserName" required type="text" name="userName"><br>
+
+                    <label for="password">Password:<br></label>
+                    <input asp-for="Password" required type="password" name="password"><br>
+
+                    <label for="userType">User Type:<br></label>
+                    <input asp-for="UserType" required type="text" name="userType"><br>
+                </div>
+                <div id="c_register">
+                    <button type="submit" class="buttons">Register</button>
+                </div>
+                <div id="c_login">
+                    <label for="login">Already have an account?</label><br>
+                    <a href="@Url.Action("Login", "User")"><input class="button" type="button" value="Login"></a>
+                </div>
+            </form>
+        </div>
+
+        <div id="footer">
+            <p> Copyright LiveShow</p>
+        </div>
+
+    </div>
+
+</body>

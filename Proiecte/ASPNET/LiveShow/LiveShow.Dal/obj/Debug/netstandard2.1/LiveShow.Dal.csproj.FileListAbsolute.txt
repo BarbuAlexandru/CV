@@ -1,0 +1,8 @@
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\bin\Debug\netstandard2.1\LiveShow.Dal.deps.json
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\bin\Debug\netstandard2.1\LiveShow.Dal.dll
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\bin\Debug\netstandard2.1\LiveShow.Dal.pdb
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\obj\Debug\netstandard2.1\LiveShow.Dal.csprojAssemblyReference.cache
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\obj\Debug\netstandard2.1\LiveShow.Dal.AssemblyInfoInputs.cache
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\obj\Debug\netstandard2.1\LiveShow.Dal.AssemblyInfo.cs
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\obj\Debug\netstandard2.1\LiveShow.Dal.dll
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Dal\obj\Debug\netstandard2.1\LiveShow.Dal.pdb

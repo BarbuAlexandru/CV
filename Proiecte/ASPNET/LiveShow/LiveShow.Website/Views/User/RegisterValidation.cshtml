@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = null;
+    ViewData["Title"] = "Register Page";
+}
+
+<style>
+    #container {
+        width: 1000px;
+        margin: auto;
+    }
+
+    #header {
+        background-color: #808080;
+        color: white;
+        padding: 10px;
+        height: 135px;
+    }
+
+    .button {
+        width: 160px;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    #h_name {
+        margin-left: 20px;
+        width: 50%;
+        font-weight: bold;
+        float: left;
+        font-size: 40px;
+    }
+
+    #h_buttons {
+        margin-right: 20px;
+        margin-top: 30px;
+        width: 40%;
+        float: right;
+        vertical-align: text-bottom;
+        text-align: right;
+    }
+
+    img {
+        z-index: -1;
+    }
+
+    #content {
+        background-color: #FFFFFF;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #c_title {
+        font-size: 60px;
+    }
+
+    #c_description {
+        font-size: 30px;
+    }
+
+    #footer {
+        background-color: #808080;
+        text-align: center;
+        clear: both;
+        padding: 10px;
+        font-size: 20px;
+    }
+</style>
+
+
+<title>LiveShow - Register page</title>
+
+<body style="background-color:#76C25B">
+
+    <div id="container">
+
+        <div id="header">
+            <div id="h_name">
+                <p>LiveShow - Register page</p>
+            </div>
+            <div id="h_buttons">
+                <a href="@Url.Action("Login", "User")"><input class="button" type="button" value="Login"></a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>The account was registered succesfully!</h1>
+        </div>
+
+        <div id="footer">
+            <p> Copyright LiveShow</p>
+        </div>
+
+    </div>
+
+</body>

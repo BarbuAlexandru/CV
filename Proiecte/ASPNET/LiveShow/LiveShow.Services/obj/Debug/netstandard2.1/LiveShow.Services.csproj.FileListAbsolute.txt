@@ -1,0 +1,11 @@
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\bin\Debug\netstandard2.1\LiveShow.Services.deps.json
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\bin\Debug\netstandard2.1\LiveShow.Services.dll
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\bin\Debug\netstandard2.1\LiveShow.Services.pdb
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\bin\Debug\netstandard2.1\LiveShow.Dal.dll
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\bin\Debug\netstandard2.1\LiveShow.Dal.pdb
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\obj\Debug\netstandard2.1\LiveShow.Services.csprojAssemblyReference.cache
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\obj\Debug\netstandard2.1\LiveShow.Services.AssemblyInfoInputs.cache
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\obj\Debug\netstandard2.1\LiveShow.Services.AssemblyInfo.cs
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\obj\Debug\netstandard2.1\LiveShow.Services.csproj.CopyComplete
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\obj\Debug\netstandard2.1\LiveShow.Services.dll
+C:\Users\mirce\Desktop\LiveShow\LiveShow.Services\obj\Debug\netstandard2.1\LiveShow.Services.pdb
