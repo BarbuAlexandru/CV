@@ -1,0 +1,49 @@
+﻿@model UnblockMe_App.ViewModels.ContactIndexViewModel
+
+@{
+    ViewData["Title"] = "Contact User Page";
+}
+
+<style>
+    .buttons {
+        width: 105px;
+        height: 43px;
+        font-size: 18px;
+        background-color: #87CDFF;
+        color: #2C3517;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        border-style: solid;
+        border-width: 1px;
+    }
+</style>
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <p>Contact this user.</p>
+    <hr>
+
+    <div style="height:auto; background-color:#70BEFF; border:solid; margin-bottom:20px">
+        <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Send a message</b></p>
+        @using (Html.BeginForm("Send", "Contact", FormMethod.Get))
+        {
+            <div>
+                <input type="hidden" id="Id" name="Id" value="@(Model.ContactUser.Id)">
+
+                <input style="margin-left:10px; margin-bottom:10px; font-size:25px; vertical-align:bottom;  width:1030px;" id="message" name="message" type="text" placeholder="Your message..." autocomplete="off" value="Hello @(Model.ContactUser.FirstName+" "+Model.ContactUser.LastName), " />
+
+                <br>
+                <select style="float:left; margin-left:400px; margin-top:15px; font-size:25px; height:43px;" id="sendMethod" name="sendMethod">
+                    <option value="SMS">SMS</option>
+                    <option value="Email">Email</option>
+                </select>
+
+                <input class="buttons" style="float:right;  margin-top:15px; font-size:25px; margin-right: 400px;" type="submit" value="Send" />
+            </div>
+            <br><br>
+        }
+    </div>
+</div>

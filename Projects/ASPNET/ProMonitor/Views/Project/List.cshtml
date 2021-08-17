@@ -1,0 +1,42 @@
+﻿@model ProMonitor.ViewModels.ProjectListViewModel
+
+@{
+    ViewData["Title"] = "Project List Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    @if (Model.ActualUser.Id == Model.CurrentUser.Id)
+    {
+        <hr>
+        <a class="btn btn-primary" asp-controller="Project" asp-action="Create">Create a new project</a>
+    }
+
+    <hr>
+    <p>All the projects you are part of.</p>
+    @foreach (var con in Model.ProjectsConnections)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p style="font-size:25px;"><b>Title: </b>@con.Project.Title</p>
+            <p><b>Description: </b>@(con.Project.Description ?? "No description set")</p>
+            <p><b>Budget: </b>@(con.Project.Budget?.ToString() ?? "No budget set")</p>
+            <p><b>Status: </b>@(con.Project.Status)</p>
+            <p><b>Owner: </b>@(con.Project.Owner.FirstName+" "+con.Project.Owner.LastName)</p>
+
+            <p><b>Your role: </b>@con.Role</p>
+            <p><b>Role description: </b>@(con.Description)</p>
+            <p><b>No. tasks: </b>@con.Project.Task.Count()</p>
+
+            <div style="display:inline-block; margin-bottom:10px;">
+                <a class="btn btn-primary" asp-controller="Project" asp-action="Index" asp-route-Id="@con.Project.Id">More details</a>
+            </div>
+        </div>
+    }
+
+    @if (Model.ProjectsConnections.Count == 0)
+    {
+        <p><b>You are not part of any project.</b></p>
+    }
+</div>

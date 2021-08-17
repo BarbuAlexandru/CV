@@ -1,0 +1,113 @@
+﻿@model UnblockMe_App.ViewModels.BlockingIndexViewModel
+
+@{
+    ViewData["Title"] = "Blocking Interactions Page";
+}
+
+<style>
+    .buttons {
+        width: 105px;
+        height: 43px;
+        font-size: 18px;
+        background-color: #87CDFF;
+        color: #2C3517;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        border-style: solid;
+        border-width: 1px;
+    }
+</style>
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <p>Here are your blocking interactions.</p>
+    <hr>
+
+    @if (Model.UserCars.Count > 0)
+    {
+        @foreach (var car in Model.UserCars)
+        {
+            @if (car.BlockedByLicencePlate != null)
+            {
+                <div style="height:auto; background-color:#70BEFF; border:solid; margin-bottom:20px">
+                    @{var auxCar = Model.BlockedByCars.Find(c => c.LicencePlate == car.BlockedByLicencePlate);}
+
+                    <a class="buttons" style="font-size:25px; float:right; height:84px; width:170px; margin-right:10px; margin-top:20px;" asp-controller="Blocking" asp-action="DeleteBlockedBy" asp-route-Id="@(car.LicencePlate)" asp-route-BlockedById="@(car.BlockedByLicencePlate)">Delete interaction</a>
+                    <a class="buttons" style="font-size:25px; float:right; height:84px; width:170px; margin-right:10px; margin-top:20px;" asp-controller="User" asp-action="Index" asp-route-Id="@(auxCar.OwnerId)">Other owner profile</a>
+                    <a class="buttons" style="font-size:25px; float:right; height:84px; width:170px; margin-right:10px; margin-top:20px;" asp-controller="Contact" asp-action="Index" asp-route-Id="@(auxCar.OwnerId)">Contact the other owner</a>
+
+                    <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Your car is blocked by another</b></p>
+                    
+                    <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="Car" asp-action="Index" asp-route-Id="@car.LicencePlate"><b>Your Car - Licence plate: @(car.LicencePlate)</b></a>
+
+                    <br><p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Maker: </b>@(car.Maker ?? "No info") - <b>Model: </b>@(car.Model ?? "No info") - <b>Color: </b>@(car.Color ?? "No info")</p>
+
+                    @if (car.AdditionalInfo != null)
+                    {
+                        <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Additional information: </b>@(car.AdditionalInfo)</p>
+                    }
+                    <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="Car" asp-action="Index" asp-route-Id="@car.BlockedByLicencePlate"><b>Blocked by - Licence plate: @(car.BlockedByLicencePlate)</b></a>
+
+                    <br><p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Maker: </b>@(auxCar.Maker ?? "No info") - <b>Model: </b>@(auxCar.Model ?? "No info") - <b>Color: </b>@(auxCar.Color ?? "No info")</p>
+                    @if (car.AdditionalInfo != null)
+                    {
+                        <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Additional information: </b>@(auxCar.AdditionalInfo)</p>
+                    }
+                    <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="User" asp-action="Index" asp-route-Id="@auxCar.Owner.Id"><b>Other owner: @(auxCar.Owner.FirstName + " " + auxCar.Owner.LastName)</b></a>
+                    
+                    @if (auxCar.Owner.AdditionalInfo != null)
+                    {
+                        <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Owner additional information: </b>@(auxCar.Owner.AdditionalInfo)</p>
+                    }
+
+                    <br><p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Average rating: </b>@(auxCar.Owner.AverageRating?.ToString() ?? " No ratings yet")</p>
+                
+                </div>
+            }
+            if (car.BlockedLicencePlate != null)
+            {
+                <div style="height:auto; background-color:#70BEFF; border:solid; margin-bottom:20px">
+                    @{var auxCar = Model.BlockedCars.Find(c => c.LicencePlate == car.BlockedLicencePlate);}
+
+                    <a class="buttons" style="font-size:25px; float:right; height:84px; width:170px; margin-right:10px; margin-top:20px;" asp-controller="Blocking" asp-action="DeleteBlocked" asp-route-Id="@(car.LicencePlate)" asp-route-BlockedById="@(car.BlockedLicencePlate)">Delete interaction</a>
+                    <a class="buttons" style="font-size:25px; float:right; height:84px; width:170px; margin-right:10px; margin-top:20px;" asp-controller="User" asp-action="Index" asp-route-Id="@(auxCar.OwnerId)">Other owner profile</a>
+                    <a class="buttons" style="font-size:25px; float:right; height:84px; width:170px; margin-right:10px; margin-top:20px;" asp-controller="Contact" asp-action="Index" asp-route-Id="@(auxCar.OwnerId)">Contact the other owner</a>
+
+                    <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Your car is blocking another</b></p>
+                    
+                    <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="Car" asp-action="Index" asp-route-Id="@car.LicencePlate"><b>Your Car - Licence plate: @(car.LicencePlate)</b></a>
+
+                    <br><p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Maker: </b>@(car.Maker ?? "No info") - <b>Model: </b>@(car.Model ?? "No info") - <b>Color: </b>@(car.Color ?? "No info")</p>
+
+                    @if (car.AdditionalInfo != null)
+                    {
+                        <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Additional information: </b>@(car.AdditionalInfo)</p>
+                    }
+                    <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="Car" asp-action="Index" asp-route-Id="@car.BlockedLicencePlate"><b>Blocking - Licence plate: @(car.BlockedLicencePlate)</b></a>
+
+                    <br><p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Maker: </b>@(auxCar.Maker ?? "No info") - <b>Model: </b>@(auxCar.Model ?? "No info") - <b>Color: </b>@(auxCar.Color ?? "No info")</p>
+                    @if (car.AdditionalInfo != null)
+                    {
+                        <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Additional information: </b>@(auxCar.AdditionalInfo)</p>
+                    }
+                    <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="User" asp-action="Index" asp-route-Id="@auxCar.Owner.Id"><b>Other owner: @(auxCar.Owner.FirstName + " " + auxCar.Owner.LastName)</b></a>
+                    
+                    @if (auxCar.Owner.AdditionalInfo != null)
+                    {
+                        <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Owner additional information: </b>@(auxCar.Owner.AdditionalInfo)</p>
+                    }
+
+                    <br><p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Average rating: </b>@(auxCar.Owner.AverageRating?.ToString() ?? " No ratings yet")</p>
+                
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <p style="font-size: 20px;">You have no cars added yet.</p>
+    }
+</div>

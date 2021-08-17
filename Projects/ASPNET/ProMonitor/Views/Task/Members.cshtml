@@ -1,0 +1,55 @@
+﻿@model ProMonitor.ViewModels.TaskMembersViewModel
+
+@{
+    ViewData["Title"] = "Manage Members Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <a class="btn btn-primary" asp-controller="Project" asp-action="Tasks" asp-route-Id="@Model.Project.Id">Back to project tasks</a>
+
+    <hr>
+    <p>Manage the members that participate in this task.</p>
+
+    <hr>
+    <p>Members that  participate in this task.</p>
+
+    @foreach (var con in Model.Project.UserProjectCon)
+    {
+        @if (Model.UserTaskCon.FirstOrDefault(con2 => con2.UserId == con.UserId) != null)
+        {
+            <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+                <p style="font-size:25px;"><b>Full name: </b>@(con.User.FirstName+" "+con.User.LastName)</p>
+                <p><b>Email: </b>@(con.User.Email)</p>
+                <p><b>Phone number: </b>@(con.User.PhoneNumber)</p>
+
+                <div style="display:inline-block; margin-bottom:10px;">
+                    <a class="btn btn-primary" asp-controller="User" asp-action="Index" asp-route-Id="@con.User.Id">See profile</a>
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="RemoveUserToTask" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id" asp-route-userId="@con.UserId">Unassign user from task</a>
+                </div>
+            </div>
+        }
+    }
+
+    <hr>
+    <p>Members that do not participate in this task.</p>
+    @foreach (var con in Model.Project.UserProjectCon)
+    {
+        @if (Model.UserTaskCon.FirstOrDefault(con2 => con2.UserId == con.UserId) == null)
+        {
+            <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+                <p style="font-size:25px;"><b>Full name: </b>@(con.User.FirstName+" "+con.User.LastName)</p>
+                <p><b>Email: </b>@(con.User.Email)</p>
+                <p><b>Phone number: </b>@(con.User.PhoneNumber)</p>
+
+                <div style="display:inline-block; margin-bottom:10px;">
+                    <a class="btn btn-primary" asp-controller="User" asp-action="Index" asp-route-Id="@con.User.Id">See profile</a>
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="AddUserToTask" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id" asp-route-userId="@con.UserId">Assign user to task</a>
+                </div>
+            </div>
+        }
+    }
+</div>

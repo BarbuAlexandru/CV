@@ -1,0 +1,61 @@
+﻿@model ProMonitor.ViewModels.ProjectTasksViewModel
+
+@{
+    ViewData["Title"] = "Project Tasks Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <a class="btn btn-primary" asp-controller="Project" asp-action="Index" asp-route-Id="@Model.Project.Id">Back to project details</a>
+
+    @if (Model.CurrentUser.Id == Model.Project.OwnerId)
+    {
+        <hr>
+        <a class="btn btn-primary" asp-controller="Task" asp-action="Create" asp-route-Id="@Model.Project.Id">Create a new task</a>
+    }
+
+
+    <hr>
+    <p>The tasks of the project.</p>
+    @foreach (var task in Model.Tasks)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p><b>Title: </b>@task.Title</p>
+            <p><b>Description: </b>@(task.Description ?? "No description available")</p>
+            <p><b>Cost: </b>@(task.Cost.ToString() ?? "No cost available")</p>
+            <p><b>Status: </b>@(task.Status ?? "No status available")</p>
+
+            <p><b>No. members assigned to it: </b>@(task.UserTaskCon.Count)</p>
+            
+            @if (Model.CurrentUser.Id == Model.Project.OwnerId)
+            {
+                <div style="display:inline-block;">
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="Members" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">Manage members</a>
+                    <hr>
+
+                    @if (task.Status == "Active")
+                    {
+                        <a class="btn btn-primary" asp-controller="Task" asp-action="FinishTask" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">Finish the task</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" asp-controller="Task" asp-action="RestartTask" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">Restart the task</a>
+                    }
+                    <hr>
+
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="Index" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">More details</a>
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="Edit" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">Edit</a>
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="Delete" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">Delete</a>
+                    <br><br>
+                </div>
+            }
+        </div>
+    }
+    @if (Model.Tasks.Count == 0)
+    {
+        <p><b>The project does not have any tasks yet.</b></p>
+    }
+</div>

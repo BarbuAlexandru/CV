@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Create Project Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Create a new project</p>
+
+    @using (Html.BeginForm("Create", "Project", FormMethod.Get))
+    {
+        <div>
+            <p>Title</p>
+            <input style="width:500px;" id="title" name="title" type="text" placeholder="Title..." autocomplete="off" required /><br><br>
+            <p>Description</p>
+            <textarea style="width:500px;" id="description" name="description" type="text" placeholder="Description..." autocomplete="off"></textarea><br><br>
+            <p>Budget</p>
+            <input style="width:200px;" id="buget" name="buget" type="number" placeholder="Budget..." autocomplete="off" /><br><br>
+            <p>Start date</p>
+            <input style="width:200px;" id="startDate" name="startDate" type="date" placeholder="Start date..." autocomplete="off" /><br><br>
+            <p>Estimated end date</p>
+            <input style="width:200px;" id="estimatedEndDate" name="estimatedEndDate" type="date" placeholder="Estimated end date..." autocomplete="off" /><br><br>
+            <input class="btn btn-primary" type="submit" value="Create new project" />
+        </div>
+    }
+</div>

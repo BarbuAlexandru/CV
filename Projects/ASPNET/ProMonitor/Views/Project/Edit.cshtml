@@ -1,0 +1,32 @@
+﻿@model ProMonitor.ViewModels.ProjectEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Project Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Edit the project.</p>
+
+    @using (Html.BeginForm("Edit", "Project", FormMethod.Get))
+    {
+        <div>
+            <input id="Id" name="Id" type="hidden" required value="@Model.Project.Id" /><br><br>
+            
+            <p>Title</p>
+            <input style="width:500px;" id="title" name="title" type="text" placeholder="Title..." autocomplete="off" required value="@Model.Project.Title"/><br><br>
+            <p>Description</p>
+            <textarea style="width:500px;" id="description" name="description" type="text" placeholder="Description..." autocomplete="off">@Model.Project.Description</textarea><br><br>
+            <p>Budget</p>
+            <input style="width:200px;" id="buget" name="buget" type="number" placeholder="Budget..." autocomplete="off" value="@Model.Project.Budget" /><br><br>
+            <p>Start date</p>
+            <input style="width:200px;" id="startDate" name="startDate" type="date" placeholder="Start date..." autocomplete="off" value="@Model.Project.StartDate" /><br><br>
+            <p>Estimated end date</p>
+            <input style="width:200px;" id="estimatedEndDate" name="estimatedEndDate" type="date" placeholder="Estimated end date..." autocomplete="off" value="@Model.Project.EstimatedEndDate" /><br><br>
+            <input class="btn btn-primary" type="submit" value="Modify the project" />
+        </div>
+    }
+</div>

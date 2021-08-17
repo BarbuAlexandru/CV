@@ -1,0 +1,35 @@
+﻿@model ProMonitor.ViewModels.ProjectModifyConViewModel
+
+@{
+    ViewData["Title"] = "Modify Role Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Modify the role of a member.</p>
+
+    @using (Html.BeginForm("ModifyCon", "Project", FormMethod.Get))
+    {
+        <div>
+            <input id="projectId" name="projectId" type="hidden" required value="@Model.Project.Id" /><br><br>
+            <p>Role</p>
+            @if (Model.UserProjCon.Role == "Owner")
+            {
+                <input style="width:500px;" id="role" name="role" type="text" placeholder="Role..." autocomplete="off" readonly required value="@Model.UserProjCon.Role"/><br><br>
+            }
+            else
+            {
+                <input style="width:500px;" id="role" name="role" type="text" placeholder="Role..." autocomplete="off" required value="@Model.UserProjCon.Role"/><br><br>
+            }
+            <p>Description</p>
+            <textarea style="width:500px;" id="description" name="description" type="text" autocomplete="off" rows="5">@Model.UserProjCon.Description</textarea><br><br>
+            <p>Status</p>
+            <input style="width:500px;" id="status" name="status" type="text" placeholder="Status..." autocomplete="off" required value="@Model.UserProjCon.Status"/><br><br>
+
+            <input class="btn btn-primary" type="submit" value="Modify" />
+        </div>
+    }
+</div>

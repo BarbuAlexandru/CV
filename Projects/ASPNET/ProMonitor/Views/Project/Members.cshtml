@@ -1,0 +1,87 @@
+﻿@model ProMonitor.ViewModels.ProjectMembersViewModel
+
+@{
+    ViewData["Title"] = "Project Members Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <a class="btn btn-primary" asp-controller="Project" asp-action="Index" asp-route-Id="@Model.Project.Id">Back to project details</a>
+
+    <hr>
+    <p>Current members of the project.</p>
+    @foreach (var con in Model.Project.UserProjectCon)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p><b>Full name: </b>@(con.User.FirstName+" "+con.User.LastName)</p>
+            <p><b>Role: </b>@(con.Role)</p>
+            <p><b>Role description: </b>@(con.Description)</p>
+            <p><b>Status: </b>@(con.Status)</p>
+
+            <div style="display:inline-block; margin-bottom:15px;">
+                <a class="btn btn-primary" asp-controller="User" asp-action="Index" asp-route-Id="@con.User.Id">See profile</a>
+                <hr>
+                @if (Model.CurrentUser.Id == con.Project.OwnerId)
+                {
+                    <a class="btn btn-primary" asp-controller="Project" asp-action="ModifyCon" asp-route-Id="@con.Id" asp-route-projectId="@con.ProjectId">Modify</a>
+                }
+                @if ((con.UserId == Model.CurrentUser.Id || con.Project.OwnerId == Model.CurrentUser.Id) && (con.Role != "Owner"))
+                {
+                    <a class="btn btn-primary" asp-controller="Project" asp-action="RemoveUser" asp-route-Id="@Model.Project.Id" asp-route-userId="@con.User.Id">Remove</a>
+                }
+            </div>
+        </div>
+    }
+
+    <hr>
+    <p>Add new members.</p>
+    @using (Html.BeginForm("Members", "Project", FormMethod.Get))
+    {
+        <div>
+            <input style="height:auto;width:500px;" id="searchString" name="searchString" type="text" placeholder="Search for a user by email..." autocomplete="off" required />
+            <input class="btn btn-primary" type="submit" value="Search" />
+        </div>
+        <div>
+            @if (Model.SearchedText != null)
+            {
+                <div>
+                    <p style="font-size:20px;">Searched Email: <b>@(Model.SearchedText)</b></p>
+                    <a class="btn btn-primary" asp-controller="Project" asp-action="Members">Clear</a>
+                </div>
+            }
+        </div>
+    }
+    <hr>
+    @if (Model.SearchedUsers == null)
+    {
+        <p>Search for an email first.</p>
+    }
+    else
+    {
+        @foreach (var user in Model.SearchedUsers)
+        {
+            @if (user.Id != Model.CurrentUser.Id && Model.Project.UserProjectCon.FirstOrDefault(con => con.UserId == user.Id) == null)
+            {
+                <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+                    <p><b>Full name: </b>@(user.FirstName + " " + user.LastName)</p>
+                    <p><b>Email: </b>@(user.Email)</p>
+                    <p><b>Phone number: </b>@(user.PhoneNumber)</p>
+
+                    <p><b>No. projects: </b>@(user.Project.Count)</p>
+                    <p><b>No. tasks: </b>@(user.UserTaskCon.Count)</p>
+
+                    <div style="display:inline-block; margin-bottom:10px;">
+                        <a class="btn btn-primary" asp-controller="User" asp-action="Index" asp-route-Id="@user.Id">See profile</a>
+                        @if (Model.CurrentUser.Id == Model.Project.OwnerId)
+                        {
+                            <a class="btn btn-primary" asp-controller="Project" asp-action="AddUser" asp-route-Id="@Model.Project.Id" asp-route-userId="@user.Id">Add user</a>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>

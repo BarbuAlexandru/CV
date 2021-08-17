@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Create Task Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Create a new task for the project.</p>
+
+    @using (Html.BeginForm("Create", "Task", FormMethod.Get))
+    {
+        <div>
+            <input id="Id" name="Id" type="hidden" required value="@Model.Project.Id" /><br><br>
+
+            <p>Title</p>
+            <input style="width:500px;" id="title" name="title" type="text" placeholder="Title..." autocomplete="off" required /><br><br>
+            <p>Description</p>
+            <textarea style="width:500px;" id="description" name="description" type="text" placeholder="Description..." autocomplete="off"></textarea><br><br>
+            <p>Cost</p>
+            <input style="width:200px;" id="cost" name="cost" type="number" placeholder="Cost..." autocomplete="off" /><br><br>
+            <p>Start date</p>
+            <input style="width:200px;" id="startDate" name="startDate" type="date" placeholder="Start date..." autocomplete="off" /><br><br>
+            <p>Estimated end date</p>
+            <input style="width:200px;" id="estimatedEndDate" name="estimatedEndDate" type="date" placeholder="Estimated end date..." autocomplete="off" /><br><br>
+            
+            <input class="btn btn-primary" type="submit" value="Create new task" />
+        </div>
+    }
+</div>

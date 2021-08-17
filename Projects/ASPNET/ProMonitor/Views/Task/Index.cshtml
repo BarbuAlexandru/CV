@@ -1,0 +1,76 @@
+﻿@model ProMonitor.ViewModels.TaskIndexViewModel
+
+@{
+    ViewData["Title"] = "Task Details Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Task details.</p>
+
+    <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+        <p><b>Title: </b>@Model.Task.Title</p>
+        <p><b>Description: </b>@(Model.Task.Description ?? "No description available")</p>
+        <p><b>Cost: </b>@(Model.Task.Cost?.ToString() ?? "No cost available")</p>
+
+        <p><b>Start date: </b>@(Model.Task.StartDate?.ToString() ?? "No date available")</p>
+        <p><b>Estimated end date: </b>@(Model.Task.EstimatedEndDate?.ToString() ?? "No date available")</p>
+        <p><b>End date: </b>@(Model.Task.EndDate?.ToString() ?? "No date available")</p>
+
+
+        <p><b>Status: </b>@(Model.Task.Status ?? "No status available")</p>
+
+        <p><b>No. members assigned to it: </b>@(Model.Task.UserTaskCon.Count)</p>
+
+        <hr>
+        <p><b>Project title: </b>@Model.Task.Project.Title</p>
+        <p><b>Project description: </b>@(Model.Task.Project.Description ?? "No description available")</p>
+        <p><b>Project budget: </b>@(Model.Task.Project.Budget?.ToString() ?? "No budget available")</p>
+        <p><b>Project status: </b>@(Model.Task.Project.Status ?? "No status available")</p>
+
+        @if (Model.CurrentUser.Id == Model.Project.OwnerId)
+        {
+            <hr>
+            <div style="display:inline-block;">
+                <a class="btn btn-primary" asp-controller="Task" asp-action="Members" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id">Manage members</a>
+                <hr>
+
+                @if (Model.Task.Status == "Active")
+                {
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="FinishTask" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id">Finish the task</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary" asp-controller="Task" asp-action="RestartTask" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id">Restart the task</a>
+                }
+                <hr>
+
+                <a class="btn btn-primary" asp-controller="Task" asp-action="Edit" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id">Edit</a>
+                <a class="btn btn-primary" asp-controller="Task" asp-action="Delete" asp-route-Id="@Model.Project.Id" asp-route-taskId="@Model.Task.Id">Delete</a>
+                <br><br>
+            </div>
+        }
+    </div>
+
+    <hr>
+    <p>Members of this task.</p>
+    @foreach (var con in Model.Task.UserTaskCon)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p style="font-size:25px;"><b>Full name: </b>@(con.User.FirstName+" "+con.User.LastName)</p>
+            <p><b>Email: </b>@(con.User.Email)</p>
+            <p><b>Phone number: </b>@(con.User.PhoneNumber)</p>
+
+            <div style="display:inline-block; margin-bottom:10px;">
+                <a class="btn btn-primary" asp-controller="User" asp-action="Index" asp-route-Id="@con.User.Id">See profile</a>
+            </div>
+        </div>
+    }
+    @if (Model.Task.UserTaskCon.Count == 0)
+    {
+        <p><b>There are no members assigned to this task.</b></p>
+    }
+</div>

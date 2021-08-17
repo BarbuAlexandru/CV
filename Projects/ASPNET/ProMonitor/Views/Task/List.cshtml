@@ -1,0 +1,38 @@
+﻿@model ProMonitor.ViewModels.TaskListViewModel
+
+@{
+    ViewData["Title"] = "Task List Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>The tasks you are a assigned to.</p>
+    @foreach (var con in Model.UserTaskCon)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p><b>Title: </b>@con.Task.Title</p>
+            <p><b>Description: </b>@(con.Task.Description ?? "No description available")</p>
+            <p><b>Status: </b>@(con.Task.Status ?? "No status available")</p>
+            <p><b>Cost: </b>@(con.Task.Cost?.ToString() ?? "No cost available")</p>
+            
+            <p><b>Start date: </b>@(con.Task.StartDate?.ToString() ?? "No date available")</p>
+            <p><b>Estimated end date: </b>@(con.Task.EstimatedEndDate?.ToString() ?? "No date available")</p>
+
+            <hr>
+            <p><b>Project title: </b>@con.Task.Project.Title</p>
+            <p><b>Project description: </b>@(con.Task.Project.Description ?? "No description available")</p>
+            <p><b>Project status: </b>@(con.Task.Project.Status ?? "No status available")</p>
+
+            <hr>
+            <a class="btn btn-primary" asp-controller="Task" asp-action="Index" asp-route-Id="@con.Task.Project.Id" asp-route-taskId="@con.Task.Id">More details</a>
+            <br><br>
+        </div>
+    }
+    @if (Model.CurrentUser.UserTaskCon.Count == 0)
+    {
+        <p><b>You are not assigned to any task yet.</b></p>
+    }
+</div>

@@ -1,0 +1,74 @@
+﻿@model ProMonitor.ViewModels.ProjectIndexViewModel
+
+@{
+    ViewData["Title"] = "Project Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Project details.</p>
+    <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+        <p style="font-size:25px;"><b>Title: </b>@Model.Project.Title</p>
+        <p><b>Description: </b>@(Model.Project.Description ?? "No description set")</p>
+        <p><b>Budget: </b>@(Model.Project.Budget?.ToString() ?? "No budget set")</p>
+        <p><b>Start date: </b>@(Model.Project.StartDate?.ToString() ?? "No start date set")</p>
+        <p><b>Estimated end date: </b>@(Model.Project.EstimatedEndDate?.ToString() ?? "No estimated end date set")</p>
+        <p><b>End date: </b>@(Model.Project.EndDate?.ToString() ?? "Not ended yet")</p>
+        <p><b>Status: </b>@(Model.Project.Status)</p>
+        <p><b>Owner: </b>@(Model.Project.Owner.FirstName+" "+ Model.Project.Owner.LastName)</p>
+
+        <p><b>No. tasks: </b>@Model.Project.Task.Count()</p>
+        <p><b>No. members: </b>@Model.Project.UserProjectCon.Count()</p>
+
+        <hr>
+        <div style="display:inline-block;">
+            <a class="btn btn-primary" asp-controller="Project" asp-action="Members" asp-route-Id="@Model.Project.Id">Members</a>
+            <a class="btn btn-primary" asp-controller="Project" asp-action="Tasks" asp-route-Id="@Model.Project.Id">Tasks</a>
+        </div>
+
+        @if (Model.Project.OwnerId == Model.CurrentUser.Id)
+        {
+            <hr>
+            <div style="display:inline-block; margin-bottom:15px;">
+                <a class="btn btn-primary" asp-controller="Project" asp-action="Edit" asp-route-Id="@Model.Project.Id">Edit the project</a>
+                @if (Model.Project.Status == "In progress")
+                {
+                    <a class="btn btn-primary" asp-controller="Project" asp-action="EndProject" asp-route-Id="@Model.Project.Id">Finish the project</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary" asp-controller="Project" asp-action="RestartProject" asp-route-Id="@Model.Project.Id">Restart the project</a>
+                }
+                <hr>
+                <a class="btn btn-primary" asp-controller="Project" asp-action="Delete" asp-route-Id="@Model.Project.Id">Delete</a>
+            </div>
+        }
+        else
+        {
+            <br><br>
+        }
+    </div>
+
+    <!--Tasks-->
+    <hr>
+    <p>The tasks of the project.</p>
+    @foreach (var task in Model.Project.Task)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p><b>Title: </b>@task.Title</p>
+            <p><b>Description: </b>@(task.Description ?? "No description available")</p>
+            <p><b>Status: </b>@(task.Status ?? "No status available")</p>
+            
+            <hr>
+            <a class="btn btn-primary" asp-controller="Task" asp-action="Index" asp-route-Id="@Model.Project.Id" asp-route-taskId="@task.Id">More details</a>
+            <br><br>
+        </div>
+    }
+    @if (Model.Project.Task.Count == 0)
+    {
+        <p><b>The project does not have any tasks yet.</b></p>
+    }
+</div>

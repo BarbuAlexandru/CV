@@ -1,0 +1,68 @@
+﻿@model ProMonitor.ViewModels.HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <!--Profile-->
+    <hr>
+    <p>Welcome back!</p>
+    <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+        <p style="font-size:25px;"><b>Full name: </b>@(Model.CurrentUser.FirstName+" "+Model.CurrentUser.LastName)</p>
+        <p><b>Email: </b>@(Model.CurrentUser.Email)</p>
+        <p><b>Phone number: </b>@(Model.CurrentUser.PhoneNumber)</p>
+
+        <a class="btn btn-primary" asp-controller="User" asp-action="Index" asp-route-Id="@Model.CurrentUser.Id">My profile</a>
+        <hr>
+
+        <div style="display:inline-block; margin-bottom:10px;">
+            <a class="btn btn-primary" asp-controller="Project" asp-action="List" asp-route-Id="@Model.CurrentUser.Id">My projects</a>
+            <a class="btn btn-primary" asp-controller="Task" asp-action="List" asp-route-Id="@Model.CurrentUser.Id">My tasks</a>
+        </div>
+    </div>
+
+    <!--Projects-->
+    <hr>
+    <p>Active projects you are a part of.</p>
+    @foreach (var con in Model.ProjectsConnections)
+    {
+        if (con.Project.Status == "In progress")
+        {
+            <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+                <p style="font-size:25px;"><b>Title: </b>@con.Project.Title</p>
+                <p><b>Your role: </b>@con.Role</p>
+                <div style="display:inline-block; margin-bottom:10px;">
+                    <a class="btn btn-primary" asp-controller="Project" asp-action="Index" asp-route-Id="@con.Project.Id">More details</a>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.ProjectsConnections.Count == 0)
+    {
+        <p><b>You are not part of any project.</b></p>
+    }
+
+    <!--Tasks-->
+    <hr>
+    <p>The tasks you are assigned to.</p>
+    @foreach (var con in Model.UserTaskCon)
+    {
+        <div style="font-size:20px; height:auto; background-color:#F5F5F5; border:solid; margin-bottom:20px; border-color:#CCCCCC;">
+            <p><b>Title: </b>@con.Task.Title</p>
+            <p><b>Description: </b>@(con.Task.Description ?? "No description available")</p>
+            <p><b>Status: </b>@(con.Task.Status ?? "No status available")</p>
+
+            <hr>
+            <a class="btn btn-primary" asp-controller="Task" asp-action="Index" asp-route-Id="@con.Task.Project.Id" asp-route-taskId="@con.Task.Id">More details</a>
+            <br><br>
+        </div>
+    }
+    @if (Model.CurrentUser.UserTaskCon.Count == 0)
+    {
+        <p><b>You are not assigned to any task yet.</b></p>
+    }
+</div>

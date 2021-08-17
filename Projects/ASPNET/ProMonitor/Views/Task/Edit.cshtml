@@ -1,0 +1,33 @@
+﻿@model ProMonitor.ViewModels.TaskEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Task Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Edit the task.</p>
+
+    @using (Html.BeginForm("Edit", "Task", FormMethod.Get))
+    {
+        <div>
+            <input id="Id" name="Id" type="hidden" required value="@Model.Project.Id" /><br><br>
+            <input id="taskId" name="taskId" type="hidden" required value="@Model.Task.Id" /><br><br>
+
+            <p>Title</p>
+            <input style="width:500px;" id="title" name="title" type="text" placeholder="Title..." autocomplete="off" required value="@Model.Task.Title" /><br><br>
+            <p>Description</p>
+            <textarea style="width:500px;" id="description" name="description" type="text" placeholder="Description..." autocomplete="off">@Model.Task.Description</textarea><br><br>
+            <p>Budget</p>
+            <input style="width:200px;" id="cost" name="cost" type="number" placeholder="Cost..." autocomplete="off" value="@Model.Task.Cost" /><br><br>
+            <p>Start date</p>
+            <input style="width:200px;" id="startDate" name="startDate" type="date" placeholder="Start date..." autocomplete="off" value="@Model.Task.StartDate" /><br><br>
+            <p>Estimated end date</p>
+            <input style="width:200px;" id="estimatedEndDate" name="estimatedEndDate" type="date" placeholder="Estimated end date..." autocomplete="off" value="@Model.Task.EstimatedEndDate" /><br><br>
+            <input class="btn btn-primary" type="submit" value="Modify the task" />
+        </div>
+    }
+</div>

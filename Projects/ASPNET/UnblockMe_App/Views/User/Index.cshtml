@@ -1,0 +1,167 @@
+﻿@model UnblockMe_App.ViewModels.UserIndexViewModel
+
+@{
+    ViewData["Title"] = "User Page";
+}
+
+<style>
+    .buttons {
+        width: 105px;
+        height: 43px;
+        font-size: 18px;
+        background-color: #87CDFF;
+        color: #2C3517;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        border-style: solid;
+        border-width: 1px;
+    }
+</style>
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <!--USER INFO-->
+    <div style="height:auto; min-height:150px; background-color:#70BEFF; border:solid; margin-bottom:20px">
+        <a style="font-size:25px; float:left; margin-left:10px; color:#003256;" asp-controller="User" asp-action="Index" asp-route-Id="@Model.UserProfile.Id"><b>@(Model.UserProfile.FirstName + " " + Model.UserProfile.LastName)</b></a>
+
+        @if (Model.UserProfile.Id == Model.CurrentUser.Id)
+        {
+            <a class="buttons" style="font-size:25px; float:right; height:42px; width:300px; margin-right:10px; margin-top:20px;" asp-controller="Blocking" asp-action="Index">Blocking interactions</a>
+        }
+        else
+        {
+            <a class="buttons" style="font-size:25px; float:right; height:42px; width:300px; margin-right:10px; margin-top:20px;" asp-controller="Contact" asp-action="Index" asp-route-Id="@Model.UserProfile.Id">Contact User</a>
+        }
+
+        <br><p style="font-size:20px; text-align:left; margin-left:10px;"><b>Contact Info - Email: </b>@Model.UserProfile.Email<b> - Phone Number: </b>@Model.UserProfile.PhoneNumber</p>
+
+        @if (Model.UserProfile.Id == Model.CurrentUser.Id)
+        {
+            <a class="buttons" style="font-size:25px; float:right; height:42px; width:300px; margin-right:10px;" asp-area="Identity" asp-page="/Account/Manage/Index">Edit my profile</a>
+        }
+
+        <p style="font-size:20px; text-align:left; margin-left:10px;"><b>Users number of cars: </b>@(Model.UserCars?.Count ?? 0)</p>
+
+        @if (Model.UserProfile.AverageRating != null)
+        {
+            <p style="font-size:20px; text-align:left; margin-left:10px;"><b>Average rating: </b>@Model.UserProfile.AverageRating</p>
+        }
+
+    </div>
+
+    <hr>
+    <!--USER Additional Information-->
+
+    <div style="height:auto; background-color:#70BEFF; border:solid; margin-bottom:20px">
+        @if (Model.UserProfile.Id == Model.CurrentUser.Id)
+        {
+            <a class="buttons" style="font-size:25px; float:right; height:42px; width:300px; margin-right:10px; margin-top:20px;" asp-controller="User" asp-action="DeleteAdditionalInformation">Delete additional info</a>
+        }
+
+        <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Users status</b></p>
+        <p style="font-size:20px; text-align:left; margin-left:10px;"><b>Additional Information: </b>@(Model.UserProfile.AdditionalInfo ?? "There is no additional information at the moment.")</p>
+
+        @if (Model.UserProfile.Id == Model.CurrentUser.Id)
+        {
+            <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Update status</b></p>
+            @using (Html.BeginForm("Index", "User", FormMethod.Get))
+            {
+                <div>
+                    <input style=" margin-left:10px; margin-bottom:10px; float:left; font-size:25px; vertical-align:bottom; width:970px;" id="newStatus" name="newStatus" type="text" placeholder="Add a new status..." autocomplete="off" required />
+                    <input class="buttons" style="font-size:25px; margin-left:10px; float:left;" type="submit" value="Update" />
+                </div>
+                <br><br>
+            }
+        }
+    </div>
+
+    <hr>
+    <!--USER CARS-->
+
+    <div style="height:auto; background-color:#70BEFF; border:solid; margin-bottom:20px">
+        @if (Model.UserProfile.Id == Model.CurrentUser.Id)
+        {
+            <a class="buttons" style="font-size:25px; float:right; height:42px; width:300px; margin-right:10px; margin-top:20px;" asp-controller="Car" asp-action="List">Edit my cars</a>
+        }
+
+        <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Users cars</b></p>
+        <p style="font-size:20px; text-align:left; margin-left:10px;"><b>Users number of cars: </b>@(Model.UserCars?.Count ?? 0)</p>
+
+        @if ((Model.UserProfile.Id == Model.CurrentUser.Id) && (Model.UserCars.Count>0))
+        {
+            <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Cars list</b></p>
+            @foreach (var car in Model.UserCars)
+            {
+                <p style="font-size:20px; text-align:left; margin-left:10px;"><b>Car @(Model.UserCars.IndexOf(car)+1)/@(Model.UserCars.Count) - Licence plate: </b>@(car.LicencePlate) - <b>Maker: </b>@(car.Maker ?? "No info") - <b>Model: </b>@(car.Model ?? "No info") - <b>Color: </b>@(car.Color ?? "No info")</p>
+
+                @if (car.AdditionalInfo != null)
+                {
+                    <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Additional information: </b>@(car.AdditionalInfo)</p>
+                }
+
+                @if (car.BlockedLicencePlate == null && car.BlockedByLicencePlate == null)
+                {
+                    <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Status: </b>OK</p>
+                }
+                else
+                {
+                    <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Status:</b>@(car.BlockedByLicencePlate != null ? " Blocked /" : null) @(car.BlockedLicencePlate != null ? " Blocking" : null)</p>
+                }
+            }
+        }
+    </div>
+
+    <hr>
+    <!--USER RATINGS-->
+    <div style="height:auto; background-color:#70BEFF; border:solid; margin-bottom:20px">
+
+        @if (Model.UserProfile.Id != Model.CurrentUser.Id)
+        {
+            <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Your review</b></p>
+
+            if (Model.CurrentUserRating != null)
+            {
+                <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - My rating: </b>@(Model.CurrentUserRating.Rating)</p>
+                <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - My comment: </b>@(Model.CurrentUserRating.Comment ?? "No comment")</p>
+            }
+
+            @using (Html.BeginForm("Index", "User", FormMethod.Get))
+            {
+                <div>
+                    <p style="font-size:25px; text-align:left; margin-left:10px; float:left;">Add/update rating: </p>
+                    <select style="float:left; margin-left:10px; font-size:25px; height:43px;" id="rating" name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="Delete">Delete</option>
+                    </select>
+                    <input style="margin-left:10px; margin-bottom:10px; float:left; font-size:25px; vertical-align:bottom; width:590px;" id="comment" name="comment" type="text" placeholder="Add a new review..." autocomplete="off" />
+                    <input class="buttons" style="font-size: 25px; margin-left: 10px; float: left; width: auto;" type="submit" value="Add/Update" />
+                </div>
+                <br><br>
+            }
+        }
+
+        <p style="font-size:25px; text-align:left; margin-left:10px;"><b>Other reviews</b></p>
+        @if (Model.UserProfile.UserRatingUserRated.Count == 0)
+        {
+            <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - No reviews yet...</b></p>
+        }
+        else
+        {
+            int index = 1;
+            @foreach (var rating in Model.UserProfile.UserRatingUserRated)
+            {
+                <p style="font-size:20px; text-align:left; margin-left:10px;">&emsp;&emsp;<b> - Review @(index)/@(Model.UserProfile.UserRatingUserRated.Count)</b><b> - Given by: </b>@(rating.UserRatingNavigation.FirstName) @(rating.UserRatingNavigation.LastName)<b> - Rating: </b>@(rating.Rating)<b> - Comment: </b>@(rating.Comment ?? "No comment")</p>
+                index += 1;
+            }
+        }
+    </div>
+
+</div>
