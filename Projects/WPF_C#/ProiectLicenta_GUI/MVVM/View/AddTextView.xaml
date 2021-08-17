@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="ProiectLicenta_GUI.MVVM.View.AddTextView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProiectLicenta_GUI.MVVM.View"
+             xmlns:viewModel="clr-namespace:ProiectLicenta_GUI.MVVM.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewModel:AddTextViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header Text -->
+        <TextBlock Text="Add Secret Text to an Image" FontSize="26" FontWeight="Bold"
+                   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+        </TextBlock>
+
+        <!-- The part for the encoding of the text -->
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                    HorizontalAlignment="Stretch" Orientation="Vertical">
+            <!-- The textbox for the plain text -->
+            <TextBlock Text="Please add the plain text below:" FontSize="20" HorizontalAlignment="Center">
+            </TextBlock>
+            <TextBox Text="{Binding PlainText, Mode=OneWayToSource}" Margin="10,5,10,0" Height="120" TextWrapping="Wrap"
+                     FontSize="16" ToolTip="Insert the plain text." VerticalScrollBarVisibility="Visible">
+            </TextBox>
+        </StackPanel>
+
+        <!-- The buttons and settings for the encoding-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,10,0,0">
+            <TextBlock Text="The Key:" FontSize="20" Margin="0,0,10,0">
+            </TextBlock>
+            <TextBox Text="{Binding EncryptionKey, Mode=OneWayToSource}" Width="150" FontSize="16"
+                     Margin="0,0,30,0" MaxLength="15" ToolTip="Insert the key for the encryption (max 15 characters).">
+            </TextBox>
+
+            <TextBlock Text="Select Cipher:" FontSize="20" Margin="0,0,10,0">
+            </TextBlock>
+
+            <ComboBox SelectedValue="{Binding SelectedCipher, Mode=OneWayToSource}" Margin="0,0,30,0" Width="120"
+                      FontSize="16" ToolTip="Select the Encryption Cipher.">
+                <ComboBoxItem Content="None" IsSelected="True"></ComboBoxItem>
+                <ComboBoxItem Content="Caesar" ></ComboBoxItem>
+                <ComboBoxItem Content="Vigenere" ></ComboBoxItem>
+                <ComboBoxItem Content="Beaufort" ></ComboBoxItem>
+                <ComboBoxItem Content="Autokey" ></ComboBoxItem>
+                <ComboBoxItem Content="Playfair" ></ComboBoxItem>
+            </ComboBox>
+
+            <Button Content="Encrypt Text" Width="100" FontSize="16" ToolTip="Encrypt the plain text."
+                    Command="{Binding EncryptTextCommand}"/>
+        </StackPanel>
+
+        
+        <!-- The textbox for the encrypted text -->
+        <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch" Orientation="Vertical">
+            <TextBlock Text="The encrypted text is:" FontSize="20" HorizontalAlignment="Center">
+            </TextBlock>
+            <TextBox Text="{Binding EncryptedText, Mode=TwoWay}" Margin="10,0,10,0" Height="120" TextWrapping="Wrap"
+                     FontSize="16" ToolTip="The encrypted text (it can still be modified)." VerticalScrollBarVisibility="Visible">
+            </TextBox>
+        </StackPanel>
+
+        <!-- Export Settings -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Margin="0,10,0,0">
+            <TextBlock Text="Select Export Format:" FontSize="20" Margin="0,0,10,0">
+            </TextBlock>
+
+            <ComboBox SelectedValue="{Binding ExportFromat, Mode=OneWayToSource}" Margin="0,0,200,0" Width="140"
+                      FontSize="16" ToolTip="Select the format of the exported image.">
+                <ComboBoxItem Content="PNG (lossless)" IsSelected="True"></ComboBoxItem>
+                <ComboBoxItem Content="BMP (lossless)" ></ComboBoxItem>
+                <ComboBoxItem Content="JPEG (lossy)" ></ComboBoxItem>
+                <ComboBoxItem Content="JPG (lossy)" ></ComboBoxItem>
+            </ComboBox>
+            
+            <Button Content="Export Image" Width="100" FontSize="16" ToolTip="Add the text to the image and export it."
+                    Command="{Binding ExportImageCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

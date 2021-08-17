@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="ProiectLicenta_GUI.MVVM.View.CheckWatermarkView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProiectLicenta_GUI.MVVM.View"
+             xmlns:viewModel="clr-namespace:ProiectLicenta_GUI.MVVM.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewModel:CheckWatermarkViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header Text -->
+        <TextBlock Text="Check the Image Watermark" FontSize="26" FontWeight="Bold"
+                    Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+        </TextBlock>
+
+        <!--Watermark key selection-->
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Please insert the Watermark Key:" FontSize="20" Margin="0,0,10,0">
+            </TextBlock>
+
+            <TextBox Text="{Binding WatermarkKey, Mode=OneWayToSource}" Width="150" FontSize="16"
+                     MaxLength="15" ToolTip="Insert the key for the watermark (max 15 characters).">
+            </TextBox>
+        </StackPanel>
+
+        <!--The Format selection Part-->
+        <StackPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Check Image Watermark" Width="250" FontSize="16"
+                    ToolTip="Check the watermark from the image."
+                    Command="{Binding CheckWatermarkCommand}"/>
+        </StackPanel>
+
+        <!--The Watermark Check Displayed-->
+        <StackPanel Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2"
+                    Orientation="Vertical" HorizontalAlignment="Center">
+            <Image Source="{Binding WatermarkStatusSource }" MaxHeight="250" MaxWidth="500"
+                   ToolTip="This image displays how much the watermark added to the image was changed.">
+            </Image>
+        </StackPanel>
+
+        <!--The Format selection Part-->
+        <StackPanel Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Export the Watermark Status" Width="250" FontSize="16"
+                    ToolTip="Export a BMP image of the watermark status."
+                    Command="{Binding ExportWatermarkCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

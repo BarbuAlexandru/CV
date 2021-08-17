@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "nrq+1+d7uZt3BKYPAarBYWL0RmZ2uyNVivJf45SKIit0y7YMEJTvblMbhyzlk9N9TdhxlO/Plsk9BxUiG+PoSg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mirce\\Desktop\\Proiecte\\VS\\ProiectLicenta_GUI\\ProiectLicenta_GUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mirce\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\mirce\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\mirce\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\mirce\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\mirce\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\mirce\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\mirce\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

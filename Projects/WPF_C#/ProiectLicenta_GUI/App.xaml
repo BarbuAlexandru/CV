@@ -1,0 +1,25 @@
+﻿<Application x:Class="ProiectLicenta_GUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProiectLicenta_GUI"
+             xmlns:viewModel="clr-namespace:ProiectLicenta_GUI.MVVM.ViewModel"
+             xmlns:view="clr-namespace:ProiectLicenta_GUI.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <view:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AddWatermarkViewModel}">
+            <view:AddWatermarkView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:CheckWatermarkViewModel}">
+            <view:CheckWatermarkView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AddTextViewModel}">
+            <view:AddTextView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ExtractTextViewModel}">
+            <view:ExtractTextView />
+        </DataTemplate>
+    </Application.Resources>
+</Application>
