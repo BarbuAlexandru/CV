@@ -1,0 +1,58 @@
+﻿@model AjaxExample.ViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    <form action="@Url.Action("Home", "Home")">
+        <br>
+        <label>Select location</label>
+        <select class="form-control" id="LocationId" name="LocationId" onchange="SelectLocation();" required>
+            <option value="">Please select a location</option>
+            @foreach (var loc in Model.Locations)
+            {
+                <option value="@(loc)">@(loc)</option>
+
+            }
+        </select>
+
+        <br>
+        <label>Select booth</label>
+        <select class="form-control" id="BoothId" name="BoothId" required>
+            <option value="">Please select a booth</option>
+        </select>
+
+        <br>
+        <input type="submit" value="Select" />
+    </form>
+</div>
+
+<script type="text/javascript">
+    function SelectLocation() {
+        var selectedLocation = $("[id*=LocationId]").val();
+        if (selectedLocation != null) {
+            //Make a ajax call to the controller
+            $.ajax({
+                url: "/Home/GetBooths",
+                data: { "location": selectedLocation },
+                success: function (response) {
+                    //delete existing options
+                    $('#BoothId').empty();
+                    $('#BoothId').append("<option value=\"\">Please select a booth</option>");
+
+                    //add current options
+                    var options = "";
+                    for (var i = 0; i < response.length; i++) {
+                        options += '<option value="' + response[i] + '">' + response[i] + '</option>';
+                    }
+                    $('#BoothId').append(options);
+                },
+                error: function (xhr) {
+                    alert("Something went wrong, please try again");
+                }
+            });
+        }
+    }
+</script>
