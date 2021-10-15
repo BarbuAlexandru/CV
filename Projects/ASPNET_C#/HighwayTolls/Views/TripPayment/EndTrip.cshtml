@@ -1,0 +1,30 @@
+﻿@model HighwayTolls.ViewModel.EndTripViewModel
+
+@{
+    ViewData["Title"] = "End a Trip";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>Please scan the Trip QR code below ;)</p>
+
+    <form action="@Url.Action("DisplayPrice", "TripPayment")">
+        <br>
+        <label>Select an unfinished Trip</label>
+        <select class="form-control" id="TripId" name="TripId" required>
+            <option value="">Please select an unfinished trip</option>
+            @foreach (var trip in Model.UnfinishedTrips)
+            {
+                @if(trip.StartCityId!=Model.TollLocation.Id){
+                    <option value="@(trip.Id)">@(trip.Id) - @(trip.Vehicle)</option>
+                }
+            }
+        </select>
+
+        <br>
+        <input class="btn btn-primary" type="submit" value="Select" />
+    </form>
+</div>

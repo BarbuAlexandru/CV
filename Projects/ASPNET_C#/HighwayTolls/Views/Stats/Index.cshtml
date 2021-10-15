@@ -1,0 +1,52 @@
+﻿@model HighwayTolls.ViewModel.StatsViewModel
+
+@{
+    ViewData["Title"] = "Stats Page";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <hr>
+    <p>General statistics about the highway tolls.</p>
+
+    <br>
+    <form action="@Url.Action("Index", "Stats")">
+        <label>Select location</label>
+        <select class="form-control" id="locationId" name="locationId" required>
+            <option value="">Please select a location</option>
+            @foreach (var loc in Model.TollLocations)
+            {
+                <option value="@(loc.Id)">@(loc.City)</option>
+
+            }
+        </select>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Select" />
+    </form>
+
+    @if (Model.SelectedLocation != null)
+    {
+        <hr>
+        <p>Selected location: @(Model.SelectedLocation.City)</p>
+        <p>Available booths: @(Model.SelectedLocationBoothsNr)</p>
+
+        @if (Model.MonthInfos.Count() > 0)
+        {
+            <br>
+            <hr>
+            <p style="font-size:30px;">The location's income for each month</p>
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            @foreach (var m in Model.MonthInfos)
+            {
+                <div style="display:inline-block;">
+                    <p style="font-size:20px; float:left;">Index: @(Model.MonthInfos.IndexOf(m)+1) - Year: @(m.year) - Month: @(m.month)</p>
+                    <p style="font-size:20px; float:right; margin-left:250px;">Income: @(m.income)</p>
+                </div>
+                <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            }
+        }
+    }
+
+</div>

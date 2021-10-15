@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .myclass {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+
+    <!--Toll Payment-->
+    <hr>
+    <p>Toll Payment.</p>
+    <div>
+        <a class="btn btn-primary myclass" asp-controller="TollPayment" asp-action="SelectVehicle" asp-route-vehicle="Motorcycle">Motorcycle</a>
+        <a class="btn btn-primary myclass" asp-controller="TollPayment" asp-action="SelectVehicle" asp-route-vehicle="Private Car">Private Car</a>
+        <a class="btn btn-primary myclass" asp-controller="TollPayment" asp-action="SelectVehicle" asp-route-vehicle="Camping Car">Camping Car</a>
+        <a class="btn btn-primary myclass" asp-controller="TollPayment" asp-action="SelectVehicle" asp-route-vehicle="Truck">Truck</a>
+        <a class="btn btn-primary myclass" asp-controller="TollPayment" asp-action="SelectVehicle" asp-route-vehicle="Bus">Bus</a>
+    </div>
+
+    <!--Toll Payment-->
+    <hr>
+    <p>Trip Payment.</p>
+    <div>
+        <a class="btn btn-primary myclass" asp-controller="TripPayment" asp-action="StartTrip">Start Trip</a>
+        <a class="btn btn-primary myclass" asp-controller="TripPayment" asp-action="EndTrip">Finish Trip</a>
+    </div>
+</div>

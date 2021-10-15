@@ -1,0 +1,31 @@
+﻿@model HighwayTolls.ViewModel.TollDisplayPriceViewModel
+
+@{
+    ViewData["Title"] = "Display Price";
+}
+
+<h1 class="display-4" style="text-align:center;">@ViewData["Title"]</h1>
+<br>
+
+<div style="text-align:center; font-size:25px;">
+    <br>
+    <p>Location: @(Model.Location.City)</p>
+    <p>Vehicle Type: @(Model.VehicleType)</p>
+
+    <br>
+    <hr>
+    <br>
+
+    <p style="font-size:35px">The price is:</p>
+    <br>
+    <p style="font-size:60px">@(Model.Price)</p>
+
+    <hr>
+    <br>
+    <div>
+        @if (Model.Price > 0)
+        {
+            <a class="btn btn-primary" style="font-size:30px;" asp-controller="TollPayment" asp-action="ExecutePayment" asp-route-location=@(Model.Location.Id) asp-route-price=@(Model.Price)>Confirm Payment</a>
+        }
+    </div>
+</div>
